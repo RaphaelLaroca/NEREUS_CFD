@@ -1,4 +1,5 @@
-"""Draws the NEREUS logo: "NERE" in a bold serif, a trident for the U and a sea snake for the S.
+"""Draws the NEREUS logo: "NERE" in a bold serif, a trident for the U, a sea snake for the S, and a wave underneath
+that the trident's shaft dips into.
 
     python3 docs/assets/make_logo.py
 
@@ -66,9 +67,8 @@ def trident_u(x0):
     polys.append([(cx - mid_w / 2, cy - r + 0.02), (cx + mid_w / 2, cy - r + 0.02),
                   (cx + mid_w / 2, 0.66), (cx - mid_w / 2, 0.66)])
     polys.append(spearhead(cx, 0.96, mid_w))
-    # The shaft, below the bowl, ending in a small butt cap.
-    polys.append([(cx - w / 2, cy - r), (cx + w / 2, cy - r), (cx + w / 2, -0.30), (cx - w / 2, -0.30)])
-    polys.append([(cx - w * 0.85, -0.30), (cx + w * 0.85, -0.30), (cx + w * 0.85, -0.38), (cx - w * 0.85, -0.38)])
+    # The shaft, below the bowl, reaching down into the wave.
+    polys.append([(cx - w / 2, cy - r), (cx + w / 2, cy - r), (cx + w / 2, -0.40), (cx - w / 2, -0.40)])
     return polys, x0 + width + w * 0.65
 
 
@@ -106,7 +106,7 @@ def fwd0(angle_deg):
 
 
 def draw(ink, eye, path_png, path_svg):
-    fig = plt.figure(figsize=(6.4, 1.9), dpi=200)
+    fig = plt.figure(figsize=(6.4, 2.2), dpi=200)
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_aspect("equal")
     ax.axis("off")
@@ -127,8 +127,15 @@ def draw(ink, eye, path_png, path_svg):
     for sgn in (1, -1):
         ax.plot(*zip(base, base + fwd * 0.10 + side * 0.04 * sgn), color=ink, lw=1.6, solid_capstyle="round")
 
-    ax.set_xlim(-0.08, x + 0.30)
-    ax.set_ylim(-0.48, 1.30)
+    # The underscore: a wave under the whole word, thickest in the middle and tapering at both ends.
+    xe = x + 0.12
+    xs = np.linspace(-0.02, xe, 400)
+    ys = -0.30 + 0.04 * np.sin((xs + 0.1) * 2 * np.pi / 0.62)
+    wave = thick_stroke(np.stack([xs, ys], 1), lambda s: 0.025 + 0.065 * np.sin(np.pi * s))
+    ax.add_patch(Polygon(wave, closed=True, fc=ink, ec="none"))
+
+    ax.set_xlim(-0.10, xe + 0.12)
+    ax.set_ylim(-0.50, 1.30)
     for p in (path_png, path_svg):
         fig.savefig(p, transparent=True)
     plt.close(fig)

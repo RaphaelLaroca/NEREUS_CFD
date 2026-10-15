@@ -833,6 +833,10 @@ writing values into the ring of cells outside the domain, either a prescribed va
 (zero gradient). Each solver then reads the ring as it needs. A ring cell on an edge or a corner lies on two or three
 faces. It takes the kind of the face the scene declares last.
 
+The particle methods (FLIP and SPH) support closed domains with fixed walls only: they do not inject particles at an
+inlet or remove them at an outlet, and their contact treats every wall as stationary. The setup screen warns when a
+particle method is given an \code{inlet}, \code{outflow}, \code{pressure_outlet} or \code{moving} face.
+
 \begin{ktab}{\linewidth}{@{}>{\raggedright}p{0.17\linewidth} >{\raggedright}p{0.19\linewidth} >{\raggedright}p{0.19\linewidth} >{\raggedright}p{0.16\linewidth} X@{}}
 \toprule
 \textbf{Kind} & \textbf{Ring cell} & \textbf{Normal velocity} & \textbf{Tangential velocity} & \textbf{Pressure} \\
@@ -1590,7 +1594,8 @@ The \code{transport} step. It moves every registered scalar one time step.
 \section{Particles}\label{sec:particles-api}
 
 \code{Definitions.h} holds the particle types. \code{src/headers/Core/Particles.h} holds the operations that every
-particle method shares.
+particle method shares. Particle runs are limited to closed domains with fixed walls: no particle is injected or
+removed at a boundary, and every wall is stationary for the contact (Section~\ref{sec:mac-bc}).
 
 \begin{lstlisting}[style=sig]
 struct Particle { bool isActive; double x, y, z; double u, v, w; };

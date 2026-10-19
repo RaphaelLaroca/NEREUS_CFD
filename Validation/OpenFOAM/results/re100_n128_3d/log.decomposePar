@@ -1,0 +1,129 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _b8cf4d35-20260127 OPENFOAM=2412 patch=260127 version=2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Oct 15 2026
+Time   : 01:55:09
+Host   : raphael-AB350M-DS3H-V2
+PID    : 1486181
+I/O    : uncollated
+Case   : /home/raphael/Projects/3DADI/Validation/OpenFOAM/results/re100_n128_3d/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [6] (region region0)
+
+Finished decomposition in 2.73 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 352419
+    Number of points = 369707
+    Number of faces shared with processor 1 = 4715
+    Number of faces shared with processor 2 = 4123
+    Number of faces shared with processor 3 = 5554
+    Number of faces shared with processor 5 = 688
+    Number of processor patches = 4
+    Number of processor faces = 15080
+    Number of boundary faces = 19010
+
+Processor 1
+    Number of cells = 347528
+    Number of points = 363785
+    Number of faces shared with processor 0 = 4715
+    Number of faces shared with processor 2 = 6667
+    Number of faces shared with processor 3 = 47
+    Number of faces shared with processor 4 = 4871
+    Number of faces shared with processor 5 = 577
+    Number of processor patches = 5
+    Number of processor faces = 16877
+    Number of boundary faces = 15167
+
+Processor 2
+    Number of cells = 347368
+    Number of points = 363717
+    Number of faces shared with processor 0 = 4123
+    Number of faces shared with processor 1 = 6667
+    Number of faces shared with processor 4 = 724
+    Number of faces shared with processor 5 = 6003
+    Number of processor patches = 4
+    Number of processor faces = 17517
+    Number of boundary faces = 14723
+
+Processor 3
+    Number of cells = 351957
+    Number of points = 369970
+    Number of faces shared with processor 0 = 5554
+    Number of faces shared with processor 1 = 47
+    Number of faces shared with processor 4 = 4629
+    Number of faces shared with processor 5 = 5495
+    Number of processor patches = 4
+    Number of processor faces = 15725
+    Number of boundary faces = 19803
+
+Processor 4
+    Number of cells = 349432
+    Number of points = 365732
+    Number of faces shared with processor 1 = 4871
+    Number of faces shared with processor 2 = 724
+    Number of faces shared with processor 3 = 4629
+    Number of faces shared with processor 5 = 6533
+    Number of processor patches = 4
+    Number of processor faces = 16757
+    Number of boundary faces = 15391
+
+Processor 5
+    Number of cells = 348448
+    Number of points = 365448
+    Number of faces shared with processor 0 = 688
+    Number of faces shared with processor 1 = 577
+    Number of faces shared with processor 2 = 6003
+    Number of faces shared with processor 3 = 5495
+    Number of faces shared with processor 4 = 6533
+    Number of processor patches = 5
+    Number of processor faces = 19296
+    Number of boundary faces = 14210
+
+Number of processor faces = 50626
+Max number of cells = 352419 (0.827884674072% above average 349525.333333)
+Max number of processor patches = 5 (15.3846153846% above average 4.33333333333)
+Max number of faces between processors = 19296 (14.3444080117% above average 16875.3333333)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+
+End
+

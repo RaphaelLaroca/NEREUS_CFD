@@ -1,0 +1,36 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n64_cpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.007812
+-dh = 0.015625
+-Nx = 66
+-Ny = 66
+-Nz = 0
+Total node count: 13467 - Re = 1000 - Grid size: 64
+Pressure Solver was initialized!
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n64_cpu.cfg
+solver   ADI, 2D, CPU, 6 threads
+grid     66 x 66
+stop     TIME at t = 60
+export   Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n64_cpu/64_2D_re1000/
+
+step     1000   t 7.81250   dt 7.812e-03   res 6.084e-04   0.48 ms/step   13.0%   eta 4 s
+step     2000   t 15.62500   dt 7.812e-03   res 1.735e-04   0.48 ms/step   26.0%   eta 3 s
+step     3000   t 23.43750   dt 7.812e-03   res 4.315e-05   0.43 ms/step   39.1%   eta 2 s
+step     4000   t 31.25000   dt 7.812e-03   res 8.612e-06   0.37 ms/step   52.1%   eta 2 s
+step     5000   t 39.06250   dt 7.812e-03   res 2.073e-06   0.27 ms/step   65.1%   eta 1 s
+step     6000   t 46.87500   dt 7.812e-03   res 8.207e-07   0.32 ms/step   78.1%   eta 1 s
+step     7000   t 54.68750   dt 7.812e-03   res 4.194e-07   0.38 ms/step   91.1%   eta 0 s
+Simulation stopped: reached t = 60.000000 (target 60.000000)
+  final field and telemetry exported.
+step     7680   t 60.00000   dt 7.812e-03   res 2.821e-07   5.68 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 60.000000 (target 60.000000)
+steps    7680
+time     60.000000 s simulated
+wall     3.14 s, 0.41 ms/step, 2443.0 steps/s
+exports  Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n64_cpu/64_2D_re1000/

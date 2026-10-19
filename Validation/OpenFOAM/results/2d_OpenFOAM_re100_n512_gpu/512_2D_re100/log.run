@@ -1,0 +1,62 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re100_n512_gpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.000977
+-dh = 0.001953
+-Nx = 514
+-Ny = 514
+-Nz = 0
+Total node count: 795675 - Re = 100 - Grid size: 512
+AMGX version 2.5.0
+Built on Apr 13 2025, 21:21:54
+Compiled with CUDA Runtime 12.8, using CUDA driver 13.2
+Pressure Solver was initialized!
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re100_n512_gpu.cfg
+solver   ADI, 2D, GPU (AMGX), 6 threads
+grid     514 x 514
+stop     TIME at t = 30
+export   Validation/OpenFOAM/results/2d_OpenFOAM_re100_n512_gpu/512_2D_re100/
+
+step     1000   t 0.97656   dt 9.766e-04   res 1.913e-04   39.19 ms/step   3.3%   eta 1212 s
+step     2000   t 1.95312   dt 9.766e-04   res 6.818e-05   15.74 ms/step   6.5%   eta 924 s
+step     3000   t 2.92969   dt 9.766e-04   res 3.366e-05   26.86 ms/step   9.8%   eta 803 s
+step     4000   t 3.90625   dt 9.766e-04   res 1.850e-05   16.46 ms/step   13.0%   eta 726 s
+step     5000   t 4.88281   dt 9.766e-04   res 1.066e-05   32.06 ms/step   16.3%   eta 665 s
+step     6000   t 5.85938   dt 9.766e-04   res 6.257e-06   22.73 ms/step   19.5%   eta 617 s
+step     7000   t 6.83594   dt 9.766e-04   res 3.644e-06   15.75 ms/step   22.8%   eta 572 s
+step     8000   t 7.81250   dt 9.766e-04   res 2.177e-06   15.70 ms/step   26.0%   eta 528 s
+step     9000   t 8.78906   dt 9.766e-04   res 1.292e-06   17.22 ms/step   29.3%   eta 489 s
+step    10000   t 9.76562   dt 9.766e-04   res 7.645e-07   15.72 ms/step   32.6%   eta 455 s
+step    11000   t 10.74219   dt 9.766e-04   res 1.123e-06   17.33 ms/step   35.8%   eta 423 s
+step    12000   t 11.71875   dt 9.766e-04   res 1.201e-06   17.21 ms/step   39.1%   eta 395 s
+step    13000   t 12.69531   dt 9.766e-04   res 3.302e-07   20.04 ms/step   42.3%   eta 368 s
+step    14000   t 13.67188   dt 9.766e-04   res 1.246e-06   17.33 ms/step   45.6%   eta 342 s
+step    15000   t 14.64844   dt 9.766e-04   res 2.972e-07   15.86 ms/step   48.8%   eta 318 s
+step    16000   t 15.62500   dt 9.766e-04   res 1.252e-06   17.29 ms/step   52.1%   eta 294 s
+step    17000   t 16.60156   dt 9.766e-04   res 7.080e-07   15.74 ms/step   55.3%   eta 272 s
+step    18000   t 17.57812   dt 9.766e-04   res 4.891e-07   15.51 ms/step   58.6%   eta 250 s
+step    19000   t 18.55469   dt 9.766e-04   res 1.201e-06   17.33 ms/step   61.8%   eta 228 s
+step    20000   t 19.53125   dt 9.766e-04   res 7.877e-07   16.07 ms/step   65.1%   eta 207 s
+step    21000   t 20.50781   dt 9.766e-04   res 5.364e-07   15.51 ms/step   68.4%   eta 187 s
+step    22000   t 21.48438   dt 9.766e-04   res 1.171e-06   19.06 ms/step   71.6%   eta 167 s
+step    23000   t 22.46094   dt 9.766e-04   res 6.047e-07   15.73 ms/step   74.9%   eta 147 s
+step    24000   t 23.43750   dt 9.766e-04   res 4.156e-07   19.34 ms/step   78.1%   eta 127 s
+step    25000   t 24.41406   dt 9.766e-04   res 2.968e-07   16.72 ms/step   81.4%   eta 108 s
+step    26000   t 25.39062   dt 9.766e-04   res 1.394e-06   17.25 ms/step   84.6%   eta 88 s
+step    27000   t 26.36719   dt 9.766e-04   res 4.642e-07   15.52 ms/step   87.9%   eta 69 s
+step    28000   t 27.34375   dt 9.766e-04   res 3.260e-07   15.48 ms/step   91.1%   eta 51 s
+step    29000   t 28.32031   dt 9.766e-04   res 1.301e-06   17.18 ms/step   94.4%   eta 32 s
+step    30000   t 29.29688   dt 9.766e-04   res 7.283e-07   17.33 ms/step   97.7%   eta 13 s
+Simulation stopped: reached t = 30.000000 (target 30.000000)
+  final field and telemetry exported.
+step    30720   t 30.00000   dt 9.766e-04   res 3.096e-07   330.23 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 30.000000 (target 30.000000)
+steps    30720
+time     30.000000 s simulated
+wall     566.05 s, 18.43 ms/step, 54.3 steps/s
+exports  Validation/OpenFOAM/results/2d_OpenFOAM_re100_n512_gpu/512_2D_re100/

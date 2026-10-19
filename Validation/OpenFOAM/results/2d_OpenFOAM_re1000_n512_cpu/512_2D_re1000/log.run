@@ -1,0 +1,90 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n512_cpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.000977
+-dh = 0.001953
+-Nx = 514
+-Ny = 514
+-Nz = 0
+Total node count: 795675 - Re = 1000 - Grid size: 512
+Pressure Solver was initialized!
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n512_cpu.cfg
+solver   ADI, 2D, CPU, 6 threads
+grid     514 x 514
+stop     TIME at t = 60
+export   Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n512_cpu/512_2D_re1000/
+
+step     1000   t 0.97656   dt 9.766e-04   res 6.515e-04   28.83 ms/step   1.6%   eta 1857 s
+step     2000   t 1.95312   dt 9.766e-04   res 4.509e-04   33.04 ms/step   3.3%   eta 1761 s
+step     3000   t 2.92969   dt 9.766e-04   res 3.156e-04   27.86 ms/step   4.9%   eta 1706 s
+step     4000   t 3.90625   dt 9.766e-04   res 2.261e-04   25.25 ms/step   6.5%   eta 1647 s
+step     5000   t 4.88281   dt 9.766e-04   res 1.688e-04   27.82 ms/step   8.1%   eta 1590 s
+step     6000   t 5.85938   dt 9.766e-04   res 1.310e-04   24.89 ms/step   9.8%   eta 1542 s
+step     7000   t 6.83594   dt 9.766e-04   res 1.043e-04   24.92 ms/step   11.4%   eta 1501 s
+step     8000   t 7.81250   dt 9.766e-04   res 8.453e-05   27.01 ms/step   13.0%   eta 1463 s
+step     9000   t 8.78906   dt 9.766e-04   res 6.939e-05   22.83 ms/step   14.6%   eta 1407 s
+step    10000   t 9.76562   dt 9.766e-04   res 5.763e-05   23.12 ms/step   16.3%   eta 1364 s
+step    11000   t 10.74219   dt 9.766e-04   res 4.845e-05   16.39 ms/step   17.9%   eta 1312 s
+step    12000   t 11.71875   dt 9.766e-04   res 4.124e-05   16.39 ms/step   19.5%   eta 1263 s
+step    13000   t 12.69531   dt 9.766e-04   res 3.551e-05   24.21 ms/step   21.2%   eta 1218 s
+step    14000   t 13.67188   dt 9.766e-04   res 3.086e-05   23.90 ms/step   22.8%   eta 1178 s
+step    15000   t 14.64844   dt 9.766e-04   res 2.689e-05   24.08 ms/step   24.4%   eta 1142 s
+step    16000   t 15.62500   dt 9.766e-04   res 2.338e-05   24.47 ms/step   26.0%   eta 1107 s
+step    17000   t 16.60156   dt 9.766e-04   res 2.019e-05   24.30 ms/step   27.7%   eta 1074 s
+step    18000   t 17.57812   dt 9.766e-04   res 1.725e-05   15.04 ms/step   29.3%   eta 1039 s
+step    19000   t 18.55469   dt 9.766e-04   res 1.458e-05   15.41 ms/step   30.9%   eta 1006 s
+step    20000   t 19.53125   dt 9.766e-04   res 1.217e-05   25.86 ms/step   32.6%   eta 974 s
+step    21000   t 20.50781   dt 9.766e-04   res 1.006e-05   24.43 ms/step   34.2%   eta 945 s
+step    22000   t 21.48438   dt 9.766e-04   res 8.234e-06   24.23 ms/step   35.8%   eta 917 s
+step    23000   t 22.46094   dt 9.766e-04   res 6.703e-06   19.95 ms/step   37.4%   eta 888 s
+step    24000   t 23.43750   dt 9.766e-04   res 5.410e-06   16.46 ms/step   39.1%   eta 860 s
+step    25000   t 24.41406   dt 9.766e-04   res 4.366e-06   22.10 ms/step   40.7%   eta 834 s
+step    26000   t 25.39062   dt 9.766e-04   res 3.500e-06   19.22 ms/step   42.3%   eta 807 s
+step    27000   t 26.36719   dt 9.766e-04   res 2.827e-06   16.37 ms/step   43.9%   eta 782 s
+step    28000   t 27.34375   dt 9.766e-04   res 2.277e-06   26.88 ms/step   45.6%   eta 757 s
+step    29000   t 28.32031   dt 9.766e-04   res 1.884e-06   18.94 ms/step   47.2%   eta 732 s
+step    30000   t 29.29688   dt 9.766e-04   res 1.523e-06   25.99 ms/step   48.8%   eta 707 s
+step    31000   t 30.27344   dt 9.766e-04   res 1.258e-06   24.03 ms/step   50.5%   eta 683 s
+step    32000   t 31.25000   dt 9.766e-04   res 1.033e-06   16.18 ms/step   52.1%   eta 658 s
+step    33000   t 32.22656   dt 9.766e-04   res 8.369e-07   16.24 ms/step   53.7%   eta 633 s
+step    34000   t 33.20312   dt 9.766e-04   res 6.951e-07   16.33 ms/step   55.3%   eta 608 s
+step    35000   t 34.17969   dt 9.766e-04   res 5.653e-07   20.05 ms/step   57.0%   eta 584 s
+step    36000   t 35.15625   dt 9.766e-04   res 4.774e-07   23.64 ms/step   58.6%   eta 561 s
+step    37000   t 36.13281   dt 9.766e-04   res 3.983e-07   25.90 ms/step   60.2%   eta 537 s
+step    38000   t 37.10938   dt 9.766e-04   res 3.363e-07   19.15 ms/step   61.8%   eta 514 s
+step    39000   t 38.08594   dt 9.766e-04   res 2.834e-07   22.19 ms/step   63.5%   eta 491 s
+step    40000   t 39.06250   dt 9.766e-04   res 2.353e-07   16.17 ms/step   65.1%   eta 467 s
+step    41000   t 40.03906   dt 9.766e-04   res 1.998e-07   19.80 ms/step   66.7%   eta 444 s
+step    42000   t 41.01562   dt 9.766e-04   res 1.694e-07   19.72 ms/step   68.4%   eta 420 s
+step    43000   t 41.99219   dt 9.766e-04   res 1.491e-07   20.10 ms/step   70.0%   eta 397 s
+step    44000   t 42.96875   dt 9.766e-04   res 1.428e-07   16.39 ms/step   71.6%   eta 375 s
+step    45000   t 43.94531   dt 9.766e-04   res 1.295e-07   24.11 ms/step   73.2%   eta 353 s
+step    46000   t 44.92188   dt 9.766e-04   res 1.578e-07   16.54 ms/step   74.9%   eta 331 s
+step    47000   t 45.89844   dt 9.766e-04   res 1.026e-07   19.87 ms/step   76.5%   eta 309 s
+step    48000   t 46.87500   dt 9.766e-04   res 8.942e-08   20.45 ms/step   78.1%   eta 287 s
+step    49000   t 47.85156   dt 9.766e-04   res 7.964e-08   16.46 ms/step   79.8%   eta 265 s
+step    50000   t 48.82812   dt 9.766e-04   res 7.373e-08   17.51 ms/step   81.4%   eta 243 s
+step    51000   t 49.80469   dt 9.766e-04   res 6.980e-08   15.63 ms/step   83.0%   eta 221 s
+step    52000   t 50.78125   dt 9.766e-04   res 6.549e-08   22.59 ms/step   84.6%   eta 199 s
+step    53000   t 51.75781   dt 9.766e-04   res 5.989e-08   22.85 ms/step   86.3%   eta 178 s
+step    54000   t 52.73438   dt 9.766e-04   res 5.382e-08   20.36 ms/step   87.9%   eta 157 s
+step    55000   t 53.71094   dt 9.766e-04   res 4.899e-08   21.69 ms/step   89.5%   eta 135 s
+step    56000   t 54.68750   dt 9.766e-04   res 4.540e-08   17.00 ms/step   91.1%   eta 114 s
+step    57000   t 55.66406   dt 9.766e-04   res 4.308e-08   16.16 ms/step   92.8%   eta 93 s
+step    58000   t 56.64062   dt 9.766e-04   res 4.080e-08   16.10 ms/step   94.4%   eta 72 s
+step    59000   t 57.61719   dt 9.766e-04   res 3.801e-08   20.50 ms/step   96.0%   eta 51 s
+step    60000   t 58.59375   dt 9.766e-04   res 3.540e-08   15.86 ms/step   97.7%   eta 30 s
+step    61000   t 59.57031   dt 9.766e-04   res 3.292e-08   16.91 ms/step   99.3%   eta 9 s
+Simulation stopped: reached t = 60.000000 (target 60.000000)
+  final field and telemetry exported.
+step    61440   t 60.00000   dt 9.766e-04   res 3.180e-08   329.07 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 60.000000 (target 60.000000)
+steps    61440
+time     60.000000 s simulated
+wall     1278.74 s, 20.81 ms/step, 48.0 steps/s
+exports  Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n512_cpu/512_2D_re1000/

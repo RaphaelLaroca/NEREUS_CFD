@@ -1,0 +1,17 @@
+code                 OpenFOAM v2412 icoFoam (PISO, 2 correctors)
+dimension            3
+grid_size            128
+fluid_cells          128x128x128
+cavity               [0, 1]^3, lid u = 1
+reynolds_nominal     100
+nu                   0.01
+courant              0.5
+dt                   0.00390625
+end_time             30
+steps                7680
+cores                6
+p_solver             GAMG GaussSeidel, tolerance 1e-6, relTol 0.05 (pFinal relTol 0)
+u_solver             smoothSolver symGaussSeidel, tolerance 1e-5
+mesh_decompose_wall_s 26.698
+solver_wall_s        12381.650
+solver_wall_per_step_s 1.61219

@@ -1,0 +1,59 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n256_cpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.001953
+-dh = 0.003906
+-Nx = 258
+-Ny = 258
+-Nz = 0
+Total node count: 201243 - Re = 1000 - Grid size: 256
+Pressure Solver was initialized!
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n256_cpu.cfg
+solver   ADI, 2D, CPU, 6 threads
+grid     258 x 258
+stop     TIME at t = 60
+export   Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n256_cpu/256_2D_re1000/
+
+step     1000   t 1.95312   dt 1.953e-03   res 8.925e-04   5.29 ms/step   3.3%   eta 175 s
+step     2000   t 3.90625   dt 1.953e-03   res 4.498e-04   5.25 ms/step   6.5%   eta 163 s
+step     3000   t 5.85938   dt 1.953e-03   res 2.604e-04   4.91 ms/step   9.8%   eta 153 s
+step     4000   t 7.81250   dt 1.953e-03   res 1.682e-04   5.03 ms/step   13.0%   eta 145 s
+step     5000   t 9.76562   dt 1.953e-03   res 1.147e-04   4.91 ms/step   16.3%   eta 138 s
+step     6000   t 11.71875   dt 1.953e-03   res 8.211e-05   4.86 ms/step   19.5%   eta 131 s
+step     7000   t 13.67188   dt 1.953e-03   res 6.146e-05   5.62 ms/step   22.8%   eta 125 s
+step     8000   t 15.62500   dt 1.953e-03   res 4.663e-05   4.43 ms/step   26.0%   eta 119 s
+step     9000   t 17.57812   dt 1.953e-03   res 3.442e-05   4.43 ms/step   29.3%   eta 112 s
+step    10000   t 19.53125   dt 1.953e-03   res 2.432e-05   4.52 ms/step   32.6%   eta 106 s
+step    11000   t 21.48438   dt 1.953e-03   res 1.648e-05   3.61 ms/step   35.8%   eta 99 s
+step    12000   t 23.43750   dt 1.953e-03   res 1.085e-05   3.61 ms/step   39.1%   eta 93 s
+step    13000   t 25.39062   dt 1.953e-03   res 7.025e-06   4.07 ms/step   42.3%   eta 87 s
+step    14000   t 27.34375   dt 1.953e-03   res 4.572e-06   4.07 ms/step   45.6%   eta 81 s
+step    15000   t 29.29688   dt 1.953e-03   res 3.080e-06   4.08 ms/step   48.8%   eta 76 s
+step    16000   t 31.25000   dt 1.953e-03   res 2.079e-06   3.60 ms/step   52.1%   eta 70 s
+step    17000   t 33.20312   dt 1.953e-03   res 1.366e-06   4.27 ms/step   55.3%   eta 65 s
+step    18000   t 35.15625   dt 1.953e-03   res 9.410e-07   4.52 ms/step   58.6%   eta 60 s
+step    19000   t 37.10938   dt 1.953e-03   res 6.778e-07   3.61 ms/step   61.8%   eta 55 s
+step    20000   t 39.06250   dt 1.953e-03   res 4.700e-07   4.47 ms/step   65.1%   eta 50 s
+step    21000   t 41.01562   dt 1.953e-03   res 3.413e-07   3.60 ms/step   68.4%   eta 45 s
+step    22000   t 42.96875   dt 1.953e-03   res 2.723e-07   3.65 ms/step   71.6%   eta 40 s
+step    23000   t 44.92188   dt 1.953e-03   res 2.321e-07   3.61 ms/step   74.9%   eta 35 s
+step    24000   t 46.87500   dt 1.953e-03   res 1.804e-07   3.60 ms/step   78.1%   eta 31 s
+step    25000   t 48.82812   dt 1.953e-03   res 1.476e-07   4.55 ms/step   81.4%   eta 26 s
+step    26000   t 50.78125   dt 1.953e-03   res 1.314e-07   4.08 ms/step   84.6%   eta 21 s
+step    27000   t 52.73438   dt 1.953e-03   res 1.086e-07   3.62 ms/step   87.9%   eta 17 s
+step    28000   t 54.68750   dt 1.953e-03   res 9.084e-08   4.08 ms/step   91.1%   eta 12 s
+step    29000   t 56.64062   dt 1.953e-03   res 8.184e-08   4.08 ms/step   94.4%   eta 8 s
+step    30000   t 58.59375   dt 1.953e-03   res 7.106e-08   4.31 ms/step   97.7%   eta 3 s
+Simulation stopped: reached t = 60.000000 (target 60.000000)
+  final field and telemetry exported.
+step    30720   t 60.00000   dt 1.953e-03   res 6.395e-08   82.69 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 60.000000 (target 60.000000)
+steps    30720
+time     60.000000 s simulated
+wall     135.68 s, 4.42 ms/step, 226.4 steps/s
+exports  Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n256_cpu/256_2D_re1000/

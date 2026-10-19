@@ -65,14 +65,15 @@ that declares its capabilities and the steps it runs; the program registers it i
 | `ADI` | Eulerian | 2D, 3D | Finite volumes on the MAC grid, alternating-direction-implicit momentum sweeps, Chorin or incremental pressure projection, central or upwind convection in advective or flux form, stretched grids |
 | `FLIP` | Hybrid | 2D, 3D | PIC/FLIP for free-surface flows, an implicit viscous solve, optional density correction (Kugelstadt et al. 2021) |
 | `SPH` | Lagrangian | 2D, 3D | Weakly compressible SPH: Wendland C2 kernel, &delta;-SPH density diffusion, mirror ghost particles at walls and solids |
-| `EXPLICIT` | Eulerian | 2D | Forward Euler with its own SOR pressure solve: the worked example of adding a method, 199 lines |
+| `EXPLICIT` | Eulerian | 2D | Forward Euler with its own SOR pressure solve: the worked example of adding a method, 194 lines |
 
 **Infrastructure**
 
 - **Grid**: staggered MAC grid, uniform or stretched rectilinear (hard, ramped and graded refinement bands), with
   interpolation, gradients and divergence on the face and centre tables.
 - **Boundary conditions**: no-slip, slip and moving walls, velocity inlets, pressure outlets and a continuity
-  outflow, with values given as expressions in `x y z t`.
+  outflow, with values given as expressions in `x y z t`. The particle methods (FLIP, SPH) run closed domains with
+  fixed walls only: they do not inject or remove particles at a boundary, and walls do not move.
 - **Geometry**: solid regions as signed distance fields (box, sphere, cylinder, plane, NACA 00XX airfoils, closed
   STL meshes), voxelised onto the grid.
 - **Pressure solver**: one assembly for every method, solved with Eigen (CG, BiCGSTAB) or AMGCL on the CPU, or
@@ -96,14 +97,14 @@ A C++17 compiler and `make`. Eigen, Dear ImGui, ImPlot, ImPlot3D, GLFW, AMGCL an
 | Windows | [MSYS2](https://www.msys2.org); in its MINGW64 shell: `pacman -S mingw-w64-x86_64-gcc make` |
 | macOS | Xcode command line tools (`xcode-select --install`); for multithreading `brew install libomp` |
 
-The GPU pressure solver needs CUDA and [AMGX](https://github.com/NVIDIA/AMGX) on Linux; it is detected
-automatically and every case also runs on the CPU solvers.
+The GPU pressure solver is optional and Linux only; every case also runs on the CPU solvers. See
+[GPU build](#gpu-build-optional) below.
 
 ### Build
 
 ```bash
-make -j            # bin/program: the interface, and headless runs with --headless
-make HEADLESS=1 -j # bin/program_headless: no window code at all
+make -j            # bin/nereus: the interface, and headless runs with --headless
+make HEADLESS=1 -j # bin/nereus_headless: no window code at all
 make info          # what the build will use, without building
 ```
 
@@ -115,17 +116,57 @@ make info          # what the build will use, without building
 | `OPENMP=0` | a serial build |
 | `DEBUG=1` | `-O0 -g` with assertions |
 
+`bin/nereus --build-info` prints the version and `gpu 1` or `gpu 0`, so you can check which pressure solvers a
+binary was built with.
+
+### GPU build (optional)
+
+The GPU pressure solver uses [AMGX](https://github.com/NVIDIA/AMGX) and needs, on Linux:
+
+- an NVIDIA driver and the CUDA toolkit (developed with CUDA 12.8; `CUDA_PATH`, default `/usr/local/cuda`);
+- an MPI implementation with its development files, which AMGX links against by default
+  (on Debian/Ubuntu: `sudo apt install libopenmpi-dev`);
+- AMGX built from source, following its own instructions (developed with AMGX 2.5.0):
+
+```bash
+git clone --recursive https://github.com/NVIDIA/AMGX.git ~/SDK/AMGX
+cd ~/SDK/AMGX && mkdir build && cd build
+cmake .. && make -j
+```
+
+The Makefile looks for the headers in `$AMGX_PATH/include` and the libraries in `$AMGX_PATH/build`, which is where
+the commands above leave them; `AMGX_PATH` defaults to `~/SDK/AMGX`. For AMGX elsewhere, point `AMGX_PATH` at its
+source tree (the folder holding `include/` and `build/`).
+
+With `NVIDIA_GPU=auto` (the default) the GPU solver is compiled only when `$AMGX_PATH/build/libamgxsh.so` and
+`$CUDA_PATH/include/cuda_runtime.h` both exist; otherwise the build is CPU-only, without an error. To require the GPU
+build, so that a missing dependency stops the build instead, use
+
+```bash
+make NVIDIA_GPU=1 AMGX_PATH=/path/to/AMGX CUDA_PATH=/usr/local/cuda -j
+bin/nereus --build-info   # gpu 1
+```
+
+AMGX is linked statically, so the program needs only the CUDA and MPI shared libraries at run time. A case runs on
+the GPU when its configuration sets `GPU_ACCELERATION = 1`. In a CPU-only build that setting is switched off with a
+warning, and the case runs on the CPU solvers.
+
 ### Run
 
 ```bash
-bin/program                                                     # the setup screen; pick a preset, press Start
-bin/program --headless configs/Ghia/2d_ghia_re100.cfg           # the same case without a window
-bin/program_headless configs/Ghia/2d_ghia_re100.cfg --progress 500 --quiet
+bin/nereus                                                     # the setup screen; pick a preset, press Start
+bin/nereus --headless configs/Ghia/2d_ghia_re100.cfg           # the same case without a window
+bin/nereus_headless configs/Ghia/2d_ghia_re100.cfg --progress 500 --quiet
 ```
 
 A headless run ends when the case's stopping rule fires and returns `0`; `1` for a usage or configuration
 error, `2` if the field went non-finite and `3` if it was interrupted (SIGINT or SIGTERM finish the current
 step and write a checkpoint when the case names one). Results go to `<EXPORT_BASE_PATH>/<case name>/`.
+
+Paths are relative to the folder the program runs in. Started with no config (the setup screen) from anywhere but
+the project root, for example from `bin/` or by double-clicking it, the program finds the project root next to or
+above the executable and works from there. A run given a config path stays where it was started, so its results land
+beside that case.
 
 ## Describing a case
 
@@ -138,7 +179,7 @@ DIMENSION = 2
 TYPE = ADI
 DOMAIN_XF = 2.2
 DOMAIN_YF = 0.41
-GRID_SIZE = 41          # cells across the shortest side
+GRID_SIZE = 41          # cells across the shorter of x and y
 VISCOSITY = 0.001
 TIME_STEP = 0.005
 STOP_CONDITION = TIME
@@ -167,9 +208,7 @@ the capabilities it uses and the steps it runs; the framework handles the grid, 
 ```cpp
 static inline void InitializeExplicit()
 {
-    SeedGridsFromScene();
-    SIMULATION.GRID_SOL->SetBoundaryFunctions(SIMULATION.VelocityBoundaryFunction2D,
-                                              SIMULATION.PressureBoundaryFunction2D);
+    MAC::InitializeSimulationGrids();
     RegisterSimulationStep(Explicit2D::Momentum,   "momentum",   0);
     RegisterSimulationStep(Explicit2D::Pressure,   "pressure",   4);
     RegisterSimulationStep(Explicit2D::Projection, "projection", 6);
@@ -226,7 +265,7 @@ src/
 configs/                   case files, one folder per validation case
 docs/                      API reference and assets
 include/                   bundled third-party libraries
-tests/                     development test suites (./tests/run_tests.sh)
+tests/                     development test suites (tests/run_all.sh; see tests/README.md)
 run_all_validation.sh      runs every validation case headless
 ```
 
@@ -245,7 +284,7 @@ Bundled third-party code keeps its own license, in the file beside it:
 
 | Library | Path | License |
 |---|---|---|
-| Eigen | `Eigen/` | MPL-2.0 |
+| Eigen | `include/eigen-3.3.7/` | MPL-2.0 |
 | Dear ImGui | `include/imgui-1.92.4` | MIT |
 | ImPlot | `include/implot-0.17` | MIT |
 | ImPlot3D | `include/implot3d-0.3` | MIT |

@@ -1,0 +1,47 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n128_gpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.003906
+-dh = 0.007812
+-Nx = 130
+-Ny = 130
+-Nz = 0
+Total node count: 51483 - Re = 1000 - Grid size: 128
+AMGX version 2.5.0
+Built on Apr 13 2025, 21:21:54
+Compiled with CUDA Runtime 12.8, using CUDA driver 13.2
+Pressure Solver was initialized!
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/2d_OpenFOAM_re1000_n128_gpu.cfg
+solver   ADI, 2D, GPU (AMGX), 6 threads
+grid     130 x 130
+stop     TIME at t = 60
+export   Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n128_gpu/128_2D_re1000/
+
+step     1000   t 3.90625   dt 3.906e-03   res 8.782e-04   8.47 ms/step   6.5%   eta 147 s
+step     2000   t 7.81250   dt 3.906e-03   res 3.294e-04   6.29 ms/step   13.0%   eta 118 s
+step     3000   t 11.71875   dt 3.906e-03   res 1.613e-04   5.94 ms/step   19.5%   eta 98 s
+step     4000   t 15.62500   dt 3.906e-03   res 9.190e-05   5.26 ms/step   26.0%   eta 84 s
+step     5000   t 19.53125   dt 3.906e-03   res 4.824e-05   4.74 ms/step   32.6%   eta 72 s
+step     6000   t 23.43750   dt 3.906e-03   res 2.173e-05   4.37 ms/step   39.1%   eta 61 s
+step     7000   t 27.34375   dt 3.906e-03   res 9.206e-06   3.69 ms/step   45.6%   eta 51 s
+step     8000   t 31.25000   dt 3.906e-03   res 4.215e-06   2.67 ms/step   52.1%   eta 42 s
+step     9000   t 35.15625   dt 3.906e-03   res 1.902e-06   3.20 ms/step   58.6%   eta 34 s
+step    10000   t 39.06250   dt 3.906e-03   res 9.683e-07   1.56 ms/step   65.1%   eta 27 s
+step    11000   t 42.96875   dt 3.906e-03   res 5.456e-07   1.62 ms/step   71.6%   eta 21 s
+step    12000   t 46.87500   dt 3.906e-03   res 3.747e-07   2.10 ms/step   78.1%   eta 15 s
+step    13000   t 50.78125   dt 3.906e-03   res 2.648e-07   2.64 ms/step   84.6%   eta 10 s
+step    14000   t 54.68750   dt 3.906e-03   res 1.867e-07   2.13 ms/step   91.1%   eta 6 s
+step    15000   t 58.59375   dt 3.906e-03   res 1.489e-07   2.67 ms/step   97.7%   eta 1 s
+Simulation stopped: reached t = 60.000000 (target 60.000000)
+  final field and telemetry exported.
+step    15360   t 60.00000   dt 3.906e-03   res 1.312e-07   22.13 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 60.000000 (target 60.000000)
+steps    15360
+time     60.000000 s simulated
+wall     60.64 s, 3.95 ms/step, 253.3 steps/s
+exports  Validation/OpenFOAM/results/2d_OpenFOAM_re1000_n128_gpu/128_2D_re1000/

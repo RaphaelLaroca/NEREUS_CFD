@@ -78,9 +78,9 @@ internals of the user interface or of \code{Utils.h}. These are closed boxes.
   pressure solver registers its own two steps, the pressure solve and the projection. The method only asks for it.
   \code{SimulationManager::StepSimulation} runs the steps. Then it does the work that no solver owns. It computes the
   residual and the telemetry, copies the grid, writes the exports, checks the stopping rule and saves checkpoints.
-\item[The grid is \code{MAC}.] This is a staggered marker-and-cell grid. The velocity lives on the cell faces. The
-  pressure and any registered scalars live at the cell centres. Every cell has a type. The grid also holds the
-  spacing tables of a uniform or stretched grid, and the boundary conditions as recorded index lists.
+\item[The grid is \code{MAC}, a staggered marker-and-cell grid, uniform or stretched.] The velocity lives on the cell
+  faces. The pressure and any registered scalars live at the cell centres. Every cell has a type, and the grid holds
+  the spacing tables and the boundary conditions as recorded index lists.
 \end{description}
 
 \subsection{Conventions}
@@ -102,10 +102,24 @@ internals of the user interface or of \code{Utils.h}. These are closed boxes.
 \item \textbf{The ring.} The grid has one extra layer of cells outside the domain on every side, the \emph{ring}. It
   carries the boundary conditions. So the walls lie exactly on the faces of the domain, and \code{GRID_SIZE} counts
   only the cells inside the domain.
-\item \textbf{Coordinates} are physical, in metres, read from the spacing tables. They are correct on stretched grids
-  and on domains that do not start at the origin.
-\item \textbf{Units} are SI. The viscosity is kinematic, in m$^2$/s. The pressure is the real pressure, in Pa.
+\item \textbf{Coordinates} are physical, in metres, read from the spacing tables.
+\item \textbf{Units} are SI throughout:
 \end{itemize}
+\begin{ktab}{\linewidth}{@{}>{\raggedright}p{0.36\linewidth} >{\raggedright}p{0.18\linewidth} X@{}}
+\toprule
+\textbf{Quantity} & \textbf{Unit} & \textbf{Note} \\
+\midrule
+lengths, coordinates, \code{dh} & m & \\
+time, \code{dt}, \code{t} & s & \\
+velocity & m/s & \\
+pressure & Pa & the real pressure, not divided by the density \\
+density \code{DENSITY} & kg/m$^3$ & \\
+viscosity \code{VISCOSITY} & m$^2$/s & kinematic \\
+body force \code{Fu}, \code{Fv}, \code{Fw}, scene \code{force} & m/s$^2$ & an acceleration, added as $f\,\Delta t$ \\
+divergence & 1/s & \\
+scalars & any & as the user defines them \\
+\bottomrule
+\end{ktab}
 
 % =====================================================================================================
 \section{Getting Started with a Custom Method}\label{sec:tutorial}
@@ -126,9 +140,9 @@ solver needs AMGX and CUDA, and is built on Linux only, when both are found.
 \toprule
 \textbf{Command} & \textbf{Builds} \\
 \midrule
-\code{make -j} & \code{bin/program}, the program with its window. \\
+\code{make -j} & \code{bin/nereus}, the program with its window. \\
 \midrule
-\code{make HEADLESS=1 -j} & \code{bin/program_headless}, with no window and no graphical library linked. \\
+\code{make HEADLESS=1 -j} & \code{bin/nereus_headless}, with no window and no graphical library linked. \\
 \midrule
 \code{make NVIDIA_GPU=0 -j} & a program with the CPU pressure solvers only. \\
 \midrule
@@ -143,13 +157,13 @@ solver needs AMGX and CUDA, and is built on Linux only, when both are found.
 The folder \code{configs/} holds one file per case, grouped by benchmark. Each file is complete: the method, the
 grid, the fluid, the stopping rule, the exports and the scene.
 
-\textbf{With the window.} \code{bin/program} opens the setup screen. Pick a case, for example the cavity
+\textbf{With the window.} \code{bin/nereus} opens the setup screen. Pick a case, for example the cavity
 \code{Explicit/ldc_2d_re100_explicit}, and press \emph{Start}. The top bar runs, pauses and steps the simulation.
 
 \textbf{Without a window.} The same file runs from the command line.
 \begin{lstlisting}[style=ex]
-bin/program_headless configs/Explicit/ldc_2d_re100_explicit.cfg
-bin/program --headless configs/Explicit/ldc_2d_re100_explicit.cfg --progress 100
+bin/nereus_headless configs/Explicit/ldc_2d_re100_explicit.cfg
+bin/nereus --headless configs/Explicit/ldc_2d_re100_explicit.cfg --progress 100
 \end{lstlisting}
 \begin{ktab}{\linewidth}{@{}>{\raggedright}p{0.30\linewidth} X@{}}
 \toprule
@@ -162,7 +176,8 @@ bin/program --headless configs/Explicit/ldc_2d_re100_explicit.cfg --progress 100
 \texttt{-{}-quiet} & print the summary only. \\
 \bottomrule
 \end{ktab}
-The exit code is 0 when the stopping rule ended the run, 1 for a usage error or a config that nothing would stop, 2
+The exit code is 0 when the stopping rule ended the run, 1 for a usage error, a config file that does not exist or
+is not valid (below), a \code{TYPE} that names no registered method, or a config that nothing would stop, 2
 when the field stopped being finite (it is checked after every step), and 3 when the run was interrupted. An
 interrupted run writes its checkpoint first.
 
@@ -170,13 +185,22 @@ interrupted run writes its checkpoint first.
 \begin{lstlisting}[style=ex]
 <EXPORT_BASE_PATH>/<config name>/<GRID_SIZE>_<2D|3D>_re<REYNOLDS_NUMBER>/
 \end{lstlisting}
-It holds \code{telemetry.csv}, one row per telemetry interval, and the field frames in \code{VTK/} as \code{.vtr}
-files for ParaView. The particle methods add particle files and, in 3D, liquid surfaces.
+It holds \code{telemetry.csv}, one row per telemetry interval, and the field frames in \code{VTK/} as
+\code{grid-NNNN.vtr} files for ParaView, numbered by frame (the final field, written when the stopping rule fires, is
+one more frame). A \code{.vtr} is a rectilinear grid with one point per cell centre, the ring included. It carries
+\code{Velocity} (each component the mean of the cell's two faces), \code{Pressure}, \code{Divergence}, \code{Solid}
+(the cell type) and one array per registered scalar. The particle methods add particle files and, in 3D, liquid
+surfaces.
 
 \subsection{The case file}
 
 A config file has \code{KEY = value} lines, then blocks for the pressure solver, for each method's settings and for
-the scene. A key that is left out takes its default; Section~\ref{sec:config} lists every key, and Section~\ref{sec:telemetry} every telemetry column. This is the lid-driven cavity at Re 100 the tutorial runs,
+the scene. A key that is left out takes its default (\code{DIMENSION} defaults to 3, so a 2D case must say so). The
+reader refuses a file it cannot trust, listing every problem before the run starts: a key no reader knows, at the top
+level or inside a method block; a number or an integer that does not parse in full (\code{VISCOSITY = 0.01abc}); a
+choice outside its list (\code{CONVECTION_SCHEME = CENTRALL}); a malformed refinement interval; and a block for a
+method the program did not register. Section~\ref{sec:config} lists every key, and Section~\ref{sec:telemetry} every
+telemetry column. This is the lid-driven cavity at Re 100 the tutorial runs,
 \code{configs/Explicit/ldc_2d_re100_explicit.cfg}, shortened.
 \begin{lstlisting}[style=ex]
 DIMENSION = 2
@@ -237,13 +261,18 @@ int main()
 }
 \end{lstlisting}
 The registration comes first because the config's \code{TYPE} is looked up in the registry, and building the grid
-asks the method whether it allows a stretched grid. With a window, the four calls of Section~\ref{sec:ui-api} wrap
+asks the method whether it allows a stretched grid. \code{Exports::InitializeTelemetry} names the telemetry file and
+writes its header; the file opens at the first row. A program without a window calls it only when exports are on,
+the window's loop calls it always, since export can be switched on during the run. With a window, the four calls of Section~\ref{sec:ui-api} wrap
 the same loop. The shipped \code{src/main.cpp} is this program, with both.
 
 \subsection{A method of your own}
 
 The method is a folder of its own. The Makefile compiles every \code{src/Methods/*/*.cpp}, so the folder needs no
-build change, and the program gains the two lines above.
+build change, and the program registers the method with one line, \code{RegisterExplicit();}, once it includes the
+method's settings header. Every object file is built into one folder and every method is linked into one program, so
+a \code{.cpp} file name must be unique across \code{src/}, and the method's classes, namespaces and global names must
+not clash with another method's (the explicit method keeps its own inside \code{Explicit2D}).
 \begin{lstlisting}[style=ex]
 src/Methods/Explicit/
   Explicit2D.h          the declarations of the step functions
@@ -300,16 +329,14 @@ manager runs them in order every time step and times each one.
 \begin{lstlisting}[style=ex]
 static inline void InitializeExplicit()
 {
-    SeedGridsFromScene();
-    SIMULATION.GRID_SOL->SetBoundaryFunctions(SIMULATION.VelocityBoundaryFunction2D,
-                                              SIMULATION.PressureBoundaryFunction2D);
+    MAC::InitializeSimulationGrids();
     RegisterSimulationStep(Explicit2D::Momentum, "momentum", 0);
     RegisterSimulationStep(Explicit2D::Pressure, "pressure", 4);
     RegisterSimulationStep(Explicit2D::Projection, "projection", 6);
 }
 \end{lstlisting}
-\code{SeedGridsFromScene} gives the boundary functions to \code{GRID_ANT} only. The momentum step applies the
-boundary on \code{GRID_SOL}, hence the second call.
+\code{MAC::InitializeSimulationGrids} (Section~\ref{sec:mac-construction}) seeds both of the run's grids from the
+scene and gives each the boundary functions.
 
 \subsubsection*{Step 4: momentum}
 
@@ -322,9 +349,22 @@ with central differences. The Laplacian of a face value $u$ sums over its four n
 \begin{equation*}
   \nabla^2 u \approx \frac{1}{h^2}\sum_{m} f_m\,(u_m - u),
 \end{equation*}
-where $f_m$ is the wall factor of Section~\ref{sec:mac-bc}: 2 where the neighbour is the ring value of a no-slip or
-moving wall, whose value belongs on the boundary face half a cell away, and 1 everywhere else.
-\code{MAC::WallLinkFactor} returns it.
+where $f_m$ is the wall factor of Section~\ref{sec:mac-bc}. It is the ratio between the distance the stencil assumes,
+one cell, and the true distance to where the neighbour's value belongs.
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+\item \textbf{A face in the middle of the domain.} Its neighbour $u_m$ is another face one cell away, where its
+  value is stored. The distance is right, so $f_m = 1$.
+\item \textbf{A face in the first row beside a no-slip wall.} The neighbour across the wall is the ring value, which
+  holds the wall velocity $u_w$. That value belongs on the wall, the boundary face, which is only half a cell away. The
+  difference $u_w - u$ must be divided by $h/2$, not $h$, so $f_m = 2$: the term $2(u_w - u)$ is the same as a ghost
+  value $2u_w - u$ reflected through the wall, one cell away.
+\end{itemize}
+A slip wall, an inlet or an outlet has its value where the stencil expects it, so $f_m = 1$ there too. The function
+\code{MAC::WallLinkFactor} returns $f_m$ for every coupling, so the loop needs no special case for walls. The convection is
+written in the advective form, $(\mathbf u\cdot\nabla)\mathbf u$, which keeps a uniform field uniform but does not
+conserve momentum or kinetic energy discretely. Its central difference next to a wall reads the ring value as if it
+were a full cell away; this simple method does not correct that, which leaves the convective term first order in the
+first row beside a wall.
 \begin{lstlisting}[style=ex]
 static double Laplacian(MAC *g, MAC::Component c, int i, int j)
 {
@@ -376,22 +416,30 @@ With $D = \sum_n c_n$, the residual of the cell and the SOR update are
 \end{equation*}
 For $\omega = 1$ this is Gauss--Seidel: $r/D$ is the change that satisfies the cell's equation. The relaxation
 $\omega$ is \code{EXPLICIT_RELAXATION}.
+
+\noindent\begin{minipage}{\linewidth}
 \begin{lstlisting}[style=ex]
 double sum = 0.0, diag = 0.0;
 for (int n = 0; n < 4; n++)
 {
-    const int t = g->GetSolid(i + di[n], j + dj[n]);
-    const double c = t == FLUID_CELL ? 1.0 : (IsPressureOutlet(t) ? 2.0 : 0.0);
-    sum += c * g->GetP(i + di[n], j + dj[n]);
+    const int ni = i + di[n], nj = j + dj[n];
+    const bool outlet = g->IsPressureOutlet(ni, nj);
+    const double c = g->IsFluid(ni, nj) ? 1.0 : (outlet ? 2.0 : 0.0);
+    sum += c * g->GetP(ni, nj);
     diag += c;
 }
 const double p = g->GetP(i, j);
 const double r = sum - diag * p - b[i * nx + j];   // how far the equation is from being satisfied
 g->SetP(i, j, p + w * r / diag);                  // r / diag zeroes it; w over-relaxes
 \end{lstlisting}
-\code{IsPressureOutlet(t)} is true for the two ring types of a pressure outlet, \code{EMPTY_CELL} and
-\code{PRESSURE_CELL}. The sweeps stop when the largest $|r|$ is below \code{EXPLICIT_TOLERANCE} times the largest
-$|b|$. With no outlet the pressure is fixed only up to a constant, and its mean is set to zero afterwards.
+\end{minipage}
+
+\code{IsFluid} and \code{IsPressureOutlet} are the grid's cell queries (Section~\ref{sec:mac}); the second is true
+for the two ring types of a pressure outlet, \code{EMPTY_CELL} and \code{PRESSURE_CELL}. The sweeps stop when the
+largest $|r|$ is below \code{EXPLICIT_TOLERANCE} times the largest $|b|$, or after \code{EXPLICIT_MAX_ITERATIONS}
+sweeps. A method that brings its own solver also decides what to do and report when it does not converge; the
+explicit method stops silently. With no outlet the pressure is fixed only up to a constant, and its mean is set to
+zero afterwards.
 \code{EnforcePressureBC} runs before the sweeps, for the outlet values, and after them, so each wall ring cell copies
 its neighbour.
 
@@ -403,18 +451,20 @@ with the gradient taken over the half cell on a face beside an outlet ring cell.
 \begin{lstlisting}[style=ex]
 if (g->FaceGate(MAC::U, i, j) != GateState::WALL)
 {
-    const bool half = IsPressureOutlet(g->GetSolid(i, j)) || IsPressureOutlet(g->GetSolid(i, j - 1));
+    const bool half = g->IsPressureOutlet(i, j) || g->IsPressureOutlet(i, j - 1);
     g->SetU(i, j, g->GetU(i, j) - (half ? 2.0 : 1.0) * k * (g->GetP(i, j) - g->GetP(i, j - 1)));
 }
 \end{lstlisting}
 
 \subsubsection*{Step 6: the stable time step}
 
-Forward Euler with central differences is stable when the step is below the three limits
+Forward Euler with central differences, in 2D, is stable when the step is below the two limits
 \begin{equation*}
-  \Delta t \le \frac{h}{|u|}, \qquad \Delta t \le \frac{h^2}{4\nu}, \qquad \Delta t \le \frac{2\nu}{|u|^2}.
+  \Delta t \le \frac{h^2}{4\nu}, \qquad \Delta t \le \frac{2\nu}{|u|^2},
 \end{equation*}
-The row's \code{stableTimestep} returns the smallest of them times \code{MAX_CFL}. The manager uses it under
+the diffusive limit and the convective one of a central scheme. Together they imply the CFL condition
+$\Delta t \le h/|u|$, which the code also checks, as a guard on how far the flow moves in one step. The row's
+\code{stableTimestep} returns the smallest of the three times \code{MAX_CFL}. The manager uses it under
 \code{ADAPTATIVE_TIMESTEP}. Without that key \code{TIME_STEP} is used as given, and nothing checks it.
 \begin{lstlisting}[style=ex]
 double Explicit2D::StableTimestep()
@@ -430,7 +480,7 @@ double Explicit2D::StableTimestep()
 Build, then run the case of the tutorial.
 \begin{lstlisting}[style=ex]
 make HEADLESS=1 -j
-bin/program_headless configs/Explicit/ldc_2d_re100_explicit.cfg
+bin/nereus_headless configs/Explicit/ldc_2d_re100_explicit.cfg
 \end{lstlisting}
 Every step the manager runs \code{momentum}, \code{pressure} and \code{projection}, then the residual, the
 telemetry and the exports (Section~\ref{sec:manager}). At $t = 60$ the stopping rule fires and writes the final field
@@ -454,7 +504,8 @@ its own.
 
 \code{src/headers/Core/SimulationManager.h} is header-only. The class builds a run from a config file and advances it
 one step at a time. It names no method, holds no data and draws nothing. All the state lives on \code{SIMULATION}, and
-the program registers the methods first (Section~\ref{sec:registry}).
+the program registers the methods first (Section~\ref{sec:registry}). The three functions below are all a program
+needs: the class's other members are the internal parts of a step.
 
 \begin{lstlisting}[style=sig]
 static void InitializeSimulation(const std::string &configFile = "");
@@ -520,7 +571,8 @@ static Axis AxisOf(Component c);
 \end{lstlisting}
 The normal axis of a velocity component.
 \begin{params}
-\p{c}{\code{MAC::U}, \code{V} or \code{W}.}
+\p{c}{\code{MAC::U}, \code{V} or \code{W}. \code{P} has no normal axis and is not a valid argument: the result is
+  not one of the three axes.}
 \end{params}
 \returns{\code{X} for \code{U}, \code{Y} for \code{V} and \code{Z} for \code{W}.}
 
@@ -551,7 +603,88 @@ double h = g.Width(MAC::AxisOf(c), m);   // the width of cell m along the axis c
 \bottomrule
 \end{ktab}
 
-\subsection{Construction}
+\subsection{Construction}\label{sec:mac-construction}
+
+A method does not build its grids. The config reader builds the run's two grids, \code{GRID_ANT} and \code{GRID_SOL},
+before any method code runs, and the method's initialiser seeds them with \code{InitializeSimulationGrids}. A grid
+the method keeps for itself is made with \code{InitializeFromGrid}. The constructor and \code{InitializeGrid}, at the
+end of this section, are for programs and tests that build a grid from nothing.
+
+\begin{lstlisting}[style=sig]
+static void InitializeSimulationGrids();
+\end{lstlisting}
+The start every grid method shares, called from the method's \code{initialize}. It calls \code{InitializeFromScene}
+at time 0 on both of the run's grids, \code{GRID_ANT} and \code{GRID_SOL}, so the first step starts from a consistent
+field.
+\example
+\begin{lstlisting}[style=ex]
+static inline void InitializeMyMethod()
+{
+    MAC::InitializeSimulationGrids();
+    RegisterSimulationStep(MyMethod::Momentum, "momentum", 0);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=sig]
+void InitializeFromScene(double t = 0.0);
+\end{lstlisting}
+Seeds this grid from the scene. It applies the scene's \code{initial} field, gives the grid the scene's boundary
+functions, and applies the boundary at time \code{t}. The grid must already be sized.
+\begin{params}
+\p{t}{the time the boundary is evaluated at, for a time-dependent boundary.}
+\end{params}
+
+\begin{lstlisting}[style=sig]
+void InitializeFromGrid(MAC &model, double t = 0.0);
+\end{lstlisting}
+Builds this grid as a copy of another, for the grids a method keeps for itself (the ADI sweeps use it for theirs). It
+sizes the grid like \code{model}, copies its cell types and its velocity and pressure, takes its boundary functions,
+and applies the boundary at time \code{t}. Registered scalars are not copied.
+\begin{params}
+\p{model}{the grid to copy, usually one of the run's grids. Its boundary functions must be set.}
+\p{t}{the time the boundary is evaluated at.}
+\end{params}
+\example
+\begin{lstlisting}[style=ex]
+static MAC work;                                    // a method's own grid
+work.InitializeFromGrid(*SIMULATION.GRID_ANT, SIMULATION.time);
+\end{lstlisting}
+
+\subsubsection*{How the grid is built}
+
+\textbf{The base spacing.} \code{GRID_SIZE} is the number of cells across the shorter of the domain's x and y lengths,
+so the base spacing is $h = \min(L_x, L_y)/\code{GRID_SIZE}$; the z length does not enter it. Every axis gets
+$n = \lfloor L/h \rfloor$ cells of width $h$. When $L$ is not a whole number of cells the last face falls up to one
+cell short of the domain's far edge, and the boundary lies there.
+
+\textbf{Refinement.} With \code{NON_UNIFORM_GRID = 1}, a method with \code{CAP_RECTILINEAR} and at least one interval
+in \code{REFINE_X}, \code{REFINE_Y} or \code{REFINE_Z}, each axis is built from the intervals on it. An interval asks
+for a local factor $F(x)$: cells of size $h/F(x)$. Where intervals overlap, the largest factor wins.
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+\item \code{hard}: $F$ is the interval's factor throughout. The interval's edges are kept exactly, and it holds a whole
+  number of equal cells, $\mathrm{round}(L_{\mathrm{band}}F/h)$, so a band around a body stays where it is put.
+\item \code{ramp}: $F$ grows linearly from 1 at \code{start} to the factor at \code{end}, so the cell size $h/F$ falls
+  hyperbolically, quickly near \code{start} and slowly near \code{end}. A large factor over a short ramp therefore
+  gives a large jump in size at its start; several nested ramps ending at the same edge follow a smoother law.
+  \code{ramp_back} is the mirror.
+\item \code{graded}: $F$ rises linearly from 1 at both ends to the factor in the middle.
+\end{itemize}
+Between the edges of the \code{hard} intervals, the grid marches cell by cell with size $h/F(x)$, then scales that
+span's cells so they fill it exactly. So no short leftover cell appears, and the cell-size ratios are kept. An axis
+with only \code{hard} intervals splits each base cell whose centre lies in an interval into $F$ equal cells. The
+number of cells is known only after this construction: \code{Nx}, \code{Ny} and \code{Nz} hold it, and the console
+reports it.
+
+\textbf{The ring.} One ring cell is added outside each end of every axis, as wide as the interior cell beside it. So
+the walls sit on the domain's faces, and the geometry about a wall is symmetric on any grid.
+
+\textbf{What a stretched grid changes.} \code{dh} becomes the smallest cell, which is what the adaptive time step
+uses. \code{nonUniform} is set whenever the config asks for refinement and the method allows it, even when no interval
+is active and the tables come out uniform. A method without \code{CAP_RECTILINEAR} is given the uniform grid, with a
+warning. On a uniform grid every table entry is the same double the plain arithmetic $x_0 + jh$ gives, so uniform
+results do not depend on the tables.
+
+A grid can also be built from nothing, as the config reader and the tests do:
 
 \begin{lstlisting}[style=sig]
 MAC();
@@ -562,9 +695,7 @@ Creates an empty grid. Call \code{InitializeGrid} before using it.
 void InitializeGrid(Domain omega, bool is2d = false);
 void InitializeGrid(Domain2D omega);
 \end{lstlisting}
-Sizes the grid from \code{SIMULATION.GRID_SIZE}. The spacing is the shorter of the x and y lengths divided by
-\code{GRID_SIZE}. Each axis gets the cells inside the domain plus one ring cell at each end, and refinement may add
-cells where \code{SIMULATION.grid} asks for them. It builds the spacing tables, allocates \code{u}, \code{v}, \code{w}
+Sizes the grid from \code{SIMULATION.GRID_SIZE} and builds its spacing tables, as described above. It allocates \code{u}, \code{v}, \code{w}
 and \code{p} as zeros, makes every cell a \code{FLUID_CELL} and resizes the registered scalars.
 \begin{params}
 \p{omega}{the domain.}
@@ -801,7 +932,7 @@ if (g.FaceGate(MAC::U, i, j) == GateState::OPEN)   // both cells fluid: solve th
 \end{lstlisting}
 
 \begin{lstlisting}[style=sig]
-bool FaceCarriesFluid(Component c, int i, int j, int k) const;
+bool IsFluidFace(Component c, int i, int j, int k) const;
 \end{lstlisting}
 Whether the flow is solved on a face.
 \begin{params}
@@ -818,6 +949,52 @@ Whether a cell is fluid and inside the domain.
 \p{i, j, k}{the cell. The 2D form drops \code{k}.}
 \end{params}
 \returns{true for a fluid cell that is not on the ring.}
+
+\begin{lstlisting}[style=sig]
+bool IsCellType(int i, int j, int k, int type) const;
+\end{lstlisting}
+Whether a cell has a given type.
+\begin{params}
+\p{i, j, k}{the cell. The 2D form drops \code{k}.}
+\p{type}{a cell type, \code{FLUID_CELL} to \code{OUTFLOW_CELL}.}
+\end{params}
+\returns{true when \code{GetSolid(i, j, k) == type}.}
+
+\begin{lstlisting}[style=sig]
+int BoundaryKindAt(int i, int j, int k) const;
+\end{lstlisting}
+The boundary kind of a cell. The three walls share \code{SOLID_CELL}, so the cell type alone cannot tell a no-slip,
+a slip and a moving wall apart; the kind can. A ring cell takes the kind of the face that owns it (the scene's,
+Section~\ref{sec:mac-bc}); an interior solid is a no-slip wall.
+\begin{params}
+\p{i, j, k}{the cell. The 2D form drops \code{k}.}
+\end{params}
+\returns{a \code{BoundaryKind} (\code{BC_NOSLIP} to \code{BC_OUTFLOW}), or $-1$ for an interior cell that is not
+solid.}
+
+\begin{lstlisting}[style=sig]
+bool IsFluid(int i, int j, int k) const;           // FLUID_CELL
+bool IsSolidWall(int i, int j, int k) const;       // SOLID_CELL: any wall or obstacle
+bool IsNoSlipWall(int i, int j, int k) const;      // kind BC_NOSLIP (and every obstacle)
+bool IsSlipWall(int i, int j, int k) const;        // kind BC_SLIP
+bool IsMovingWall(int i, int j, int k) const;      // kind BC_MOVING
+bool IsInlet(int i, int j, int k) const;           // INFLOW_CELL
+bool IsOutflow(int i, int j, int k) const;         // OUTFLOW_CELL
+bool IsPressureOutlet(int i, int j, int k) const;  // EMPTY_CELL or PRESSURE_CELL
+\end{lstlisting}
+Shorthands for the common questions, built on \code{IsCellType} and \code{BoundaryKindAt}. \code{IsPressureOutlet}
+is true for a cell whose pressure is known: a pressure-outlet ring cell, at $p = 0$ (\code{EMPTY_CELL}) or at a
+prescribed value (\code{PRESSURE_CELL}). Under a particle method an air cell is also \code{EMPTY_CELL}, at the
+free-surface value $p = 0$, so it answers true as well.
+\begin{params}
+\p{i, j, k}{the cell. The 2D forms drop \code{k}.}
+\end{params}
+\returns{true when the cell is of that kind.}
+\example
+\begin{lstlisting}[style=ex]
+// the coefficient of a neighbour in a pressure stencil
+const double c = g->IsFluid(ni, nj) ? 1.0 : (g->IsPressureOutlet(ni, nj) ? 2.0 : 0.0);
+\end{lstlisting}
 
 \begin{lstlisting}[style=sig]
 void ResetFluidCells();
@@ -899,7 +1076,11 @@ tangential axis. Call it after \code{EnforceVelocityBC}.
 \p{i, j, k}{the face. The 2D form drops \code{k}.}
 \p{s}{the side of the neighbour, $-1$ or $+1$.}
 \end{params}
-\returns{2 on a uniform grid when the neighbour is the ring value of a no-slip or moving wall, 1 otherwise.}
+\returns{1 unless the neighbour is the value of a no-slip or moving wall. For such a neighbour,
+  \code{FaceGap/(Width/2)} of the face's own cell along \code{a}. At a wall of the domain this is exactly 2 on every
+  grid, stretched included, because the ring cell is as wide as the interior cell beside it. At the face of an
+  obstacle on a stretched grid it is $(W_f + W_s)/W_f$, with $W_f$ the width of the face's cell and $W_s$ that of the
+  solid cell.}
 
 \begin{lstlisting}[style=sig]
 void AddForce(double time, double dt);
@@ -1051,6 +1232,10 @@ would prescribe the pressure and let the normal velocity follow, is not implemen
 % -----------------------------------------------------------------------------------------------------
 \subsection{Differential operators}
 
+This part of the interface is small and is being reworked. A future version will offer the gradient, the divergence
+and the Laplacian of any field, and a gradient at any physical point, in one consistent set of functions. Until then
+a method writes its own stencils from the spacing tables, as the tutorial does.
+
 \begin{lstlisting}[style=sig]
 double GetDivergencyAt(int i, int j, int k);
 \end{lstlisting}
@@ -1120,12 +1305,19 @@ const double d = g.ScalarAt("d", 0.45, 0.20, 0.205);
 \begin{lstlisting}[style=sig]
 int CellAt(Axis axis, double x) const;
 \end{lstlisting}
-The cell that holds a coordinate along an axis.
+The cell that holds a coordinate along one axis. There is no single call from a point to \code{(i, j, k)}: call it
+once per axis, \code{MAC::X} for \code{j}, \code{MAC::Y} for \code{i} and \code{MAC::Z} for \code{k}. \code{CentrePos}
+goes back from an index to a coordinate.
 \begin{params}
 \p{axis}{the axis.}
 \p{x}{the coordinate, in metres.}
 \end{params}
-\returns{the cell index, kept inside the grid.}
+\returns{the cell index along that axis. A coordinate outside the grid gives the first or the last cell.}
+\example
+\begin{lstlisting}[style=ex]
+const int j = g.CellAt(MAC::X, x), i = g.CellAt(MAC::Y, y);   // the cell holding the point (x, y)
+const double p = g.GetP(i, j);
+\end{lstlisting}
 
 \subsection{Diagnostics}
 
@@ -1176,8 +1368,9 @@ Adds a field of zeros. A second call with the same name returns the same handle 
 different transport in the second call is reported.
 \begin{params}
 \p{name}{the name of the field.}
-\p{scheme, transport}{how the transport solver moves it: the scheme alone, or the scheme, form, diffusivity and
-  reaction rate.}
+\p{scheme, transport}{how the transport solver moves it: the scheme alone, or the solver, scheme, form,
+  diffusivity and reaction rate. A \code{transport.solver} of \code{ScalarSolver::None} leaves the field to the
+  method: the transport step only sets its ring.}
 \end{params}
 \returns{the handle of the field.}
 \example
@@ -1209,7 +1402,33 @@ const ScalarTransport &ScalarTransportOf(int h) const;
 \begin{params}
 \p{h}{the handle of the field.}
 \end{params}
-\returns{the field's scheme, form, diffusivity and reaction rate.}
+\returns{the field's solver, scheme, form, diffusivity and reaction rate.}
+
+\begin{lstlisting}[style=sig]
+void EnforceScalarBC(int h, double t);
+\end{lstlisting}
+Sets the ring of field \code{h}: on a face where the scene pins the scalar, the scene's value at time \code{t}; on
+every other ring cell, a copy of the cell inside (zero gradient). The transport step calls it after each solve, and
+for a field with no solver (\code{solver=none}) it is all the step does, so a method that updates such a field itself
+(a turbulence model, say) finds the boundary values in the ring.
+\begin{params}
+\p{h}{the handle of the field.}
+\p{t}{the time the scene's value is evaluated at.}
+\end{params}
+
+\begin{lstlisting}[style=sig]
+double ScalarSourceAt(int h, double x, double y, double z, double t) const;
+\end{lstlisting}
+Evaluates field \code{h}'s \code{source} expression from the scene. The ADI transport solver applies it once per
+step, before its sweeps, at each fluid cell centre; a method updating a field with no solver calls this to do the
+same. Call it from serial code only: the expression's variables live at fixed addresses, so two threads evaluating it
+at once overwrite each other's.
+\begin{params}
+\p{h}{the handle of the field.}
+\p{x, y, z}{the point, in metres. In 2D \code{z} is ignored.}
+\p{t}{the time, in seconds.}
+\end{params}
+\returns{$S(x, y, z, t)$, or 0 when the field has no source.}
 
 \begin{lstlisting}[style=sig]
 double GetS(int h, int i, int j, int k) const;
@@ -1267,8 +1486,9 @@ struct SimulationMethod {
     double (*particleSpacing)();
 };
 \end{lstlisting}
-Everything the program knows about a method. \code{key} is the value of \code{TYPE} in the config, and the tag in a
-checkpoint. The setup screen shows \code{label} and \code{help}. \code{initialize} builds the method's solvers and
+Everything the program knows about a method. \code{key} is the value of \code{TYPE} in the config, the prefix of its
+settings block (\code{<KEY>_BEGIN}), and the tag in a checkpoint. It may be 1 to 63 characters long
+(\code{MAX_METHOD_KEY} $- 1$), the size of the checkpoint's key field. The setup screen shows \code{label} and \code{help}. \code{initialize} builds the method's solvers and
 registers its steps (Section~\ref{sec:steps-api}). \code{dispose} frees what \code{initialize} allocated; it may be
 null when the method holds nothing worth freeing. The settings members point at the method's settings struct and at
 its table (Section~\ref{sec:settings-api}). \code{drawSettings} and \code{checkSettings} are optional hooks for the
@@ -1320,8 +1540,8 @@ family & grid & particles & rectilinear & boundary cells & fixed region & scalar
 \begin{lstlisting}[style=sig]
 int RegisterSimulationMethod(const SimulationMethod &m);
 \end{lstlisting}
-Adds a row to the registry. It stops with an error on a key that is already used, on capabilities outside the
-family, or when the registry is full (16 rows). Call it before \code{InitializeSimulation}, which looks up the
+Adds a row to the registry. It stops with an error on a key that is empty, longer than 63 characters or already
+used, on capabilities outside the family, or when the registry is full (16 rows). Call it before \code{InitializeSimulation}, which looks up the
 config's \code{TYPE} here.
 \begin{params}
 \p{m}{the method's row.}
@@ -1412,14 +1632,25 @@ kept inside its range, a bool as a checkbox and an enum as a drop-down list. \co
 \p{keys, labels, count}{how each enum value is written in the file and shown on screen, in enum order.}
 \end{params}
 \returns{the row, to put in the method's table.}
+
+\begin{lstlisting}[style=sig]
+constexpr SettingField WithUnit(SettingField f, const char *unit);
+\end{lstlisting}
+The same row with a unit, which the setup screen shows after the value. Rows without one show none.
+\begin{params}
+\p{f}{a row made by one of the functions above.}
+\p{unit}{the unit as it should read, \code{"m"}, \code{"m/s"}, \code{"1/s"}.}
+\end{params}
+\returns{the row with its unit set.}
 \example
 \begin{lstlisting}[style=ex]
-struct MySettings { double relaxation = 1.7; int maxIterations = 1000; };
+struct MySettings { double relaxation = 1.7; int maxIterations = 1000; double radius = 0.05; };
 inline MySettings MY_SETTINGS;
 inline const SettingField MY_FIELDS[] = {
     DoubleSetting("MY_RELAXATION", "Relaxation", "SOR factor, 0.5 to 2",
                   offsetof(MySettings, relaxation), 1.7, 0.5, 2.0),
     IntSetting("MY_MAX_ITERATIONS", "Max sweeps", "", offsetof(MySettings, maxIterations), 1000, 1, 1e7),
+    WithUnit(DoubleSetting("MY_RADIUS", "Radius", "", offsetof(MySettings, radius), 0.05, 0.0), "m"),
 };
 \end{lstlisting}
 
@@ -1475,12 +1706,6 @@ order & name & registered by & method \\\midrule
 \end{tabular}
 \end{center}
 
-\begin{lstlisting}[style=sig]
-void SeedGridsFromScene();
-\end{lstlisting}
-The start every grid method shares. It seeds both grids with the scene's \code{initial} field, gives \code{GRID_ANT}
-the scene's boundary functions and applies the boundary at time 0. Call it from \code{initialize} after the solvers
-are built. A method that applies the boundary to \code{GRID_SOL} must call \code{SetBoundaryFunctions} on it as well.
 
 % =====================================================================================================
 \section{The pressure solver (\texorpdfstring{\texttt{Methods/PPESolver/}}{Methods/PPESolver/})}\label{sec:pressure-api}
@@ -1562,13 +1787,16 @@ then shuts AMGX down when no handle is left. A program that used AMGX calls it o
 % =====================================================================================================
 \section{Scalar transport}\label{sec:transport-api}
 
-\code{TransportSolver2D} and \code{TransportSolver3D}, in \code{src/headers/Solvers/}. They move every scalar $\phi$
+\code{TransportSolver2D} and \code{TransportSolver3D}, declared in \code{src/headers/Solvers/} and defined in
+\code{src/}. They move every scalar $\phi$
 the grid carries with the solved velocity, with optional diffusion, reaction and source,
 \begin{equation*}
   \frac{\partial\phi}{\partial t} + \mathrm{conv}(\mathbf{u},\phi) = \nabla\cdot(\epsilon\nabla\phi) - \gamma\phi + S .
 \end{equation*}
 A scalar is declared in the scene (Section~\ref{sec:scene-api}) or registered with \code{MAC::RegisterScalar}. Its
-scheme (central or upwind), its form (flux or advective), $\epsilon$ and $\gamma$ travel with it.
+solver, its scheme (central or upwind), its form (flux or advective), $\epsilon$ and $\gamma$ travel with it. A scalar
+declared with \code{solver=none} is stored, copied, checkpointed and exported like the others, and its ring is set
+every step, but the transport step does not move it: the method that owns it updates the values.
 
 \begin{lstlisting}[style=sig]
 static void InitializeTransportSolver2D(MAC *grid);
@@ -1750,6 +1978,22 @@ One config file describes a run. It holds \code{KEY = value} lines, then four ki
 (Section~\ref{sec:scene-api}). A \texttt{\#} starts a comment, also after a value. A key that is left out takes the
 default below. The setup screen writes every key, so a file it saves lists them all.
 
+\textbf{Validation.} \code{InitializeSimulation} reads the whole file before it builds anything and stops the program
+with exit code 1, listing every problem at once, when
+\begin{itemize}[nosep]
+  \item the file does not exist (\code{configuration file '...' not found});
+  \item a key is not read by anything: a misspelling at the top level, or a key that is not in the table of the
+    method block it sits in;
+  \item a number does not parse in full (\code{VISCOSITY = abc} or \code{0.01abc}), or an integer key holds a real
+    (\code{GRID_SIZE = 32.5});
+  \item a choice is outside its list (\code{PROJECTION_SCHEME = FOO}), with the allowed values printed;
+  \item a \code{REFINE_*} interval does not parse or is empty;
+  \item a \code{<KEY>_BEGIN} block belongs to a method the program did not register.
+\end{itemize}
+The pressure block is checked by its backend (AMGX parses its own keys), and the scene block by the scene parser
+(Section~\ref{sec:scene-api}). The setup screen opens the same file without stopping: it keeps the default for a
+value it cannot read, and writes every key back, valid, when the case is saved.
+
 \subsection{The run}
 
 \begin{ktab}{\linewidth}{@{}>{\raggedright}p{0.30\linewidth} >{\raggedright}p{0.14\linewidth} X@{}}
@@ -1759,7 +2003,7 @@ default below. The setup screen writes every key, so a file it saves lists them 
 \code{DIMENSION} & 3 & 2 or 3. \\
 \midrule
 \code{TYPE} & the first method registered & the key of the method to run, for example \code{ADI}, \code{FLIP},
-  \code{SPH} or \code{EXPLICIT}. \\
+  \code{SPH} or \code{EXPLICIT}. A key that names no registered method stops the run with an error. \\
 \midrule
 \code{THREAD_COUNT} & 4 & OpenMP threads. \\
 \midrule
@@ -1785,7 +2029,8 @@ default below. The setup screen writes every key, so a file it saves lists them 
 \code{REFINE_X}, \code{REFINE_Y}, \code{REFINE_Z} & none & refined intervals, separated by \code{;}, each
   \code{start end factor [mode]}. Mode \code{hard} (default) splits each cell into \code{factor} cells;
   \code{ramp} grows the factor from 1 at \code{start} to \code{factor} at \code{end}; \code{ramp_back} is its mirror;
-  \code{graded} is 1 at both ends and \code{factor} in the middle. Where intervals overlap the finest wins. \\
+  \code{graded} is 1 at both ends and \code{factor} in the middle. Where intervals overlap the finest wins.
+  An interval outside the domain refines nothing. Section~\ref{sec:mac-construction} gives the construction. \\
 \bottomrule
 \end{ktab}
 \begin{lstlisting}[style=ex]
@@ -1958,13 +2203,12 @@ every registered method, so switching \code{TYPE} keeps the others' settings.
 \midrule
 \code{CONVECTION_SCHEME} & \code{CENTRAL} & \code{CENTRAL} (second order) or \code{UPWIND} (first order, bounded). \\
 \midrule
-\code{CONVECTION_FORM} & \code{FLUX} & \code{FLUX} (conserves momentum) or \code{ADVECTIVE} (keeps a uniform field
-  uniform). \\
+\code{CONVECTION_FORM} & \code{FLUX} & \code{FLUX} or \code{ADVECTIVE}. \\
 \midrule
-\code{PROJECTION_SCHEME} & \code{CHORIN} & \code{CHORIN} or \code{INCREMENTAL}. The incremental scheme's steady state
-  does not depend on $\Delta t$. \\
+\code{PROJECTION_SCHEME} & \code{CHORIN} & \code{CHORIN} or \code{INCREMENTAL}. \\
 \midrule
-\code{VORTICITY_CONFINEMENT} & 0 & 1 adds a force that keeps small vortices from decaying. Visual, not physical. \\
+\code{VORTICITY_CONFINEMENT} & 0 & 1 adds a force that keeps small vortices from decaying. A graphics aid, not
+  physics; no validated case uses it, and it will be removed in a future version. \\
 \midrule
 \code{VORTICITY_EPSILON} & 10 & its strength, in 1/s. \\
 \midrule
@@ -2057,8 +2301,11 @@ region <solid|fluid> <shape> & The shapes are \code{box min= max=}, \code{sphere
   closed STL) and \code{naca00XX center= chord= pivot= rotate= [span=]}. \code{invert} keeps the outside. A
   \code{fluid} region is where a particle method seeds its liquid. \\
 \midrule
-scalar <name> & \code{scheme=central|upwind}, \code{form=flux|advective}, \code{epsilon=}, \code{gamma=} and
-  \code{source="..."}. It must come before any boundary that names it. \\
+scalar <name> & \code{solver=adi|none} (default \code{adi}), \code{scheme=central|upwind},
+  \code{form=flux|advective}, \code{epsilon=}, \code{gamma=} and \code{source="..."}. With \code{solver=none} the
+  field is held and its boundary set; \code{scheme} and \code{form} do not apply, and \code{epsilon}, \code{gamma}
+  and \code{source} are kept for the method that updates it. It must come before any boundary that names
+  it. \\
 \midrule
 force & \code{u= v= w=}. A body force, as an acceleration, added to the config's \code{Fu}, \code{Fv} and
   \code{Fw}. \\

@@ -1,0 +1,22 @@
+# Albensoeder & Kuhlmann (2005), J. Comput. Phys. 206:536-558, Re = 1000, Gamma = Lambda = 1, rigid end walls, 96x96x64.
+# Converted to FLUID_LAB's frame: unit cube, lid at y = 1 moving in +x, velocity over the lid speed.
+# Paper frame: centred cube, lid at x = -1/2 moving in +y at Re (velocity scale nu/h), so u/Re is over the lid speed.
+# Table 6, u/Re on (0, y, 0) -> v on the horizontal centreline (y = z = 0.5): x = 1/2 + y_paper, v = -u_paper.
+x,v
+0.0000,0.0000000
+0.0625,0.2173841
+0.0703,0.2274623
+0.0781,0.2350273
+0.0938,0.2440743
+0.1563,0.2292360
+0.2266,0.1758025
+0.2344,0.1698661
+0.5000,0.0367355
+0.8047,-0.1522299
+0.8594,-0.3111715
+0.9063,-0.4342302
+0.9453,-0.3351117
+0.9531,-0.2903172
+0.9609,-0.2409470
+0.9688,-0.1886420
+1.0000,0.0000000

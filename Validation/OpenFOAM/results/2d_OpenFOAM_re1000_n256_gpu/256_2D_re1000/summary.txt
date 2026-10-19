@@ -1,0 +1,13 @@
+code                 NEREUS ADI (incremental, central flux form), headless
+dimension            2
+device               gpu
+grid_size            256
+reynolds_nominal     1000
+dt                   0.001953125
+end_time             60
+steps                30720
+threads              6
+pressure             AMGX PCG + aggregation AMG (SIZE_2, block Jacobi), RELATIVE_INI_CORE 1e-6
+exit_code            0
+total_wall_s         264.724
+total_wall_per_step_s 0.00861732

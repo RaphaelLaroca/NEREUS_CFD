@@ -1,0 +1,2 @@
+iteration,time,div_sum,div_sum_before_proj,advcfl,diffcfl,cell_reynolds,residual,momentum_timing,pressure_timing,projection_timing,kinetic_energy,enstrophy,dissipation,physical_dissipation,numerical_dissipation,injected,removed
+10,0.0152588,0,0,0.195312,0.25,0.637284,0.0245258,0.000398173,0.884007,3.8501e-05,0.00375853,13.8986,-0.130543,0.281381,0.125921,0.537845,0

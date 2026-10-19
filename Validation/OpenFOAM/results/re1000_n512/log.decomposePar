@@ -1,0 +1,121 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _b8cf4d35-20260127 OPENFOAM=2412 patch=260127 version=2412
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Oct 15 2026
+Time   : 00:13:35
+Host   : raphael-AB350M-DS3H-V2
+PID    : 1166317
+I/O    : uncollated
+Case   : /home/raphael/Projects/3DADI/Validation/OpenFOAM/results/re1000_n512/case
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method scotch [6] (region region0)
+
+Finished decomposition in 0.12 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 43690
+    Number of points = 88338
+    Number of faces shared with processor 1 = 362
+    Number of faces shared with processor 4 = 116
+    Number of processor patches = 2
+    Number of processor faces = 478
+    Number of boundary faces = 87858
+
+Processor 1
+    Number of cells = 44023
+    Number of points = 89036
+    Number of faces shared with processor 0 = 362
+    Number of faces shared with processor 2 = 263
+    Number of faces shared with processor 3 = 8
+    Number of faces shared with processor 4 = 63
+    Number of faces shared with processor 5 = 187
+    Number of processor patches = 5
+    Number of processor faces = 883
+    Number of boundary faces = 88151
+
+Processor 2
+    Number of cells = 43661
+    Number of points = 88184
+    Number of faces shared with processor 1 = 263
+    Number of faces shared with processor 3 = 175
+    Number of processor patches = 2
+    Number of processor faces = 438
+    Number of boundary faces = 87744
+
+Processor 3
+    Number of cells = 43329
+    Number of points = 87520
+    Number of faces shared with processor 1 = 8
+    Number of faces shared with processor 2 = 175
+    Number of faces shared with processor 5 = 247
+    Number of processor patches = 3
+    Number of processor faces = 430
+    Number of boundary faces = 87088
+
+Processor 4
+    Number of cells = 43733
+    Number of points = 88348
+    Number of faces shared with processor 0 = 116
+    Number of faces shared with processor 1 = 63
+    Number of faces shared with processor 5 = 261
+    Number of processor patches = 3
+    Number of processor faces = 440
+    Number of boundary faces = 87906
+
+Processor 5
+    Number of cells = 43708
+    Number of points = 88286
+    Number of faces shared with processor 1 = 187
+    Number of faces shared with processor 3 = 247
+    Number of faces shared with processor 4 = 261
+    Number of processor patches = 3
+    Number of processor faces = 695
+    Number of boundary faces = 87589
+
+Number of processor faces = 1682
+Max number of cells = 44023 (0.760650634766% above average 43690.6666667)
+Max number of processor patches = 5 (66.6666666667% above average 3)
+Max number of faces between processors = 883 (57.4910820452% above average 560.666666667)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+
+End
+

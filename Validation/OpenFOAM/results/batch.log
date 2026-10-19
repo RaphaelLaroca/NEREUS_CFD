@@ -1,0 +1,1413 @@
+batch started Fri Sep 25 10:44:48 AM -03 2026
+[re100_n64] 2D mesh 62x62, nu 0.01, dt 0.0078125, end 30, 6 cores
+[re100_n64] done: 3840 steps, solver 6.490s (0.0016901s/step)
+  re100_n64: ok
+[re100_n128] 2D mesh 126x126, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128] done: 7680 steps, solver 25.229s (0.00328503s/step)
+  re100_n128: ok
+[re100_n256] 2D mesh 254x254, nu 0.01, dt 0.001953125, end 30, 6 cores
+[re100_n256] done: 15360 steps, solver 198.372s (0.0129148s/step)
+  re100_n256: ok
+[re1000_n64] 2D mesh 62x62, nu 0.001, dt 0.0078125, end 60, 6 cores
+[re1000_n64] done: 7680 steps, solver 14.394s (0.00187422s/step)
+  re1000_n64: ok
+[re1000_n128] 2D mesh 126x126, nu 0.001, dt 0.00390625, end 60, 6 cores
+[re1000_n128] done: 15360 steps, solver 48.073s (0.00312975s/step)
+  re1000_n128: ok
+[re1000_n256] 2D mesh 254x254, nu 0.001, dt 0.001953125, end 60, 6 cores
+[re1000_n256] done: 30720 steps, solver 393.535s (0.0128104s/step)
+  re1000_n256: ok
+batch finished Fri Sep 25 10:56:24 AM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+rm -f build/.nvidia_gpu_* build/.mode_*
+touch build/.mode_gpu1_headless1_debug0
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver2D.cpp -o build/TransportSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver3D.cpp -o build/TransportSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Utils.cpp -o build/Utils.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/VorticityConfinement2D.cpp -o build/VorticityConfinement2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+In file included from src/Methods/ADI/ADI3D.h:5,
+                 from src/Methods/ADI/ADI3D.cpp:1:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/ADI/ADI2D.h:5,
+                 from src/Methods/ADI/ADISettings.h:253,
+                 from src/Methods/ADI/VorticityConfinement2D.cpp:2:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/ADI/ADI2D.h:5,
+                 from src/Methods/ADI/ADI2D.cpp:1:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/headers/Solvers/PressureSolver2D.h:2,
+                 from src/PressureSolver2D.cpp:1:
+src/headers/Solvers/../Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/headers/Solvers/../Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/headers/Solvers/../Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/headers/Solvers/../Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/headers/Solvers/../Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/FLIP/DiffusionSolver2D.h:8,
+                 from src/Methods/FLIP/DiffusionSolver2D.cpp:2:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/headers/Solvers/PressureSolver3D.h:3,
+                 from src/PressureSolver3D.cpp:1:
+src/headers/Solvers/../Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/headers/Solvers/../Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/headers/Solvers/../Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/headers/Solvers/../Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/headers/Solvers/../Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/headers/Solvers/../Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/FLIP/DiffusionSolver3D.h:4,
+                 from src/Methods/FLIP/DiffusionSolver3D.cpp:2:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/headers/Core/ConfigReader.h:11,
+                 from src/headers/Core/SimulationManager.h:6,
+                 from src/main.cpp:16:
+src/headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_X_U_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:82:12: warning: unused variable ‘sig’ [-Wunused-variable]
+   82 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS); //wil be overwriten if diffusion moddeling
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:83:12: warning: unused variable ‘rho’ [-Wunused-variable]
+   83 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_Y_U_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:234:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  234 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:235:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  235 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_X_V_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:390:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  390 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:391:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  391 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_Y_V_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:538:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  538 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:539:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  539 |     double rho = (dt/(4*dh));
+      |            ^~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:8,
+                 from src/Methods/ADI/ADISettings.h:255:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:8,
+                 from src/Methods/ADI/ADISettings.h:255,
+                 from src/Methods/ADI/ADI3D.cpp:2:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:8,
+                 from src/Methods/ADI/ADISettings.h:255,
+                 from src/Methods/ADI/ADI2D.cpp:2:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+src/PressureSolver3D.cpp: In static member function ‘static void PressureSolver3D::InitializePressureSolver(MAC*, bool)’:
+src/PressureSolver3D.cpp:282:9: warning: unused variable ‘MAT_LINE’ [-Wunused-variable]
+  282 |     int MAT_LINE = 0;
+      |         ^~~~~~~~
+src/PressureSolver3D.cpp:283:9: warning: unused variable ‘MAT_COLLUM’ [-Wunused-variable]
+  283 |     int MAT_COLLUM = 0;
+      |         ^~~~~~~~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+src/PressureSolver3D.cpp: In static member function ‘static void PressureSolver3D::UpdatePressureMatrix_Eigen(MAC*)’:
+src/PressureSolver3D.cpp:648:9: warning: unused variable ‘MAT_LINE’ [-Wunused-variable]
+  648 |     int MAT_LINE = 0;
+      |         ^~~~~~~~
+src/PressureSolver3D.cpp:649:9: warning: unused variable ‘MAT_COLLUM’ [-Wunused-variable]
+  649 |     int MAT_COLLUM = 0;
+      |         ^~~~~~~~~~
+src/PressureSolver3D.cpp: In static member function ‘static void PressureSolver3D::SolvePressure_EIGEN(MAC*, MAC*, ParticleSet*, double)’:
+src/PressureSolver3D.cpp:907:16: warning: unused variable ‘end’ [-Wunused-variable]
+  907 |         double end = GetWallTime();
+      |                ^~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/headers/Solvers/PressureSolver2D.h:8:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/DiffusionSolver2D.h:13:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/DiffusionSolver3D.h:9:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/headers/Solvers/PressureSolver3D.h:10:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:8,
+                 from src/Methods/ADI/ADISettings.h:255,
+                 from src/main.cpp:18:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/ADI/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >; Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1]’
+src/PressureSolver2D.cpp:143:25:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >; Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver2D.cpp:150:25:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >; Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver3D.cpp:139:21:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >; Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1]’
+src/PressureSolver3D.cpp:177:29:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -fopenmp -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH3D.cpp -o build/SPH3D.o
+In file included from src/Methods/FLIP/FLIP2D.h:5,
+                 from src/Methods/FLIP/FLIP2D.cpp:1:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/FLIP/FLIP3D.h:5,
+                 from src/Methods/FLIP/FLIP3D.cpp:1:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+src/Methods/FLIP/FLIP2D.cpp: In static member function ‘static void FLIP2D::InitializeFLIP(MAC*, ParticleSet*, double, double)’:
+src/Methods/FLIP/FLIP2D.cpp:60:9: warning: unused variable ‘ambient_height’ [-Wunused-variable]
+   60 |     int ambient_height = (int)(0.0132 / dh);     // 1.32 cm (d)
+      |         ^~~~~~~~~~~~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/FLIP2D.h:9:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/FLIP3D.h:8:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:406:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver2D.h:96:114:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:407:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>&) [with Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+src/Methods/FLIP/../../headers/Solvers/PressureSolver3D.h:100:132:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+g++ build/MAC.o build/main.o build/PressureSolver2D.o build/PressureSolver3D.o build/TransportSolver2D.o build/TransportSolver3D.o build/Utils.o build/ADI2D.o build/ADI3D.o build/VorticityConfinement2D.o build/DiffusionSolver2D.o build/DiffusionSolver3D.o build/FLIP2D.o build/FLIP3D.o build/SPH2D.o build/SPH3D.o     build/tinyexpr/tinyexpr.o -o bin/program_headless -L/usr/local/cuda/lib64 -L/home/raphael/SDK/AMGX/build -lamgx -lamgxsh -lmpi -lcudart -lcublas -lcusparse -lcusolver -lcudadevrt -lcudart_static -fopenmp -lrt -lpthread -ldl
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Sat Sep 26 12:52:57 AM -03 2026
+[re100_n64] 2D mesh 62x62, nu 0.01, dt 0.0078125, end 30, 6 cores
+[re100_n64] done: 3840 steps, solver 6.333s (0.00164922s/step)
+  openfoam re100_n64: ok
+  fluidlab re100_n64_cpu: ok (5.286 s)
+  fluidlab re100_n64_gpu: ok (32.875 s)
+[re100_n128] 2D mesh 126x126, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128] done: 7680 steps, solver 26.274s (0.00342109s/step)
+  openfoam re100_n128: ok
+  fluidlab re100_n128_cpu: ok (16.658 s)
+  fluidlab re100_n128_gpu: ok (112.246 s)
+[re100_n256] 2D mesh 254x254, nu 0.01, dt 0.001953125, end 30, 6 cores
+[re100_n256] done: 15360 steps, solver 211.411s (0.0137637s/step)
+  openfoam re100_n256: ok
+  fluidlab re100_n256_cpu: ok (104.009 s)
+  fluidlab re100_n256_gpu: ok (537.894 s)
+[re100_n512] 2D mesh 510x510, nu 0.01, dt 0.0009765625, end 30, 6 cores
+[re100_n512] done: 30720 steps, solver 2368.946s (0.0771141s/step)
+  openfoam re100_n512: ok
+  fluidlab re100_n512_cpu: ok (872.089 s)
+  fluidlab re100_n512_gpu: ok (4016.673 s)
+[re1000_n64] 2D mesh 62x62, nu 0.001, dt 0.0078125, end 60, 6 cores
+[re1000_n64] done: 7680 steps, solver 13.505s (0.00175846s/step)
+  openfoam re1000_n64: ok
+  fluidlab re1000_n64_cpu: ok (6.934 s)
+  fluidlab re1000_n64_gpu: ok (62.932 s)
+[re1000_n128] 2D mesh 126x126, nu 0.001, dt 0.00390625, end 60, 6 cores
+[re1000_n128] done: 15360 steps, solver 48.948s (0.00318672s/step)
+  openfoam re1000_n128: ok
+  fluidlab re1000_n128_cpu: ok (50.360 s)
+  fluidlab re1000_n128_gpu: ok (216.275 s)
+[re1000_n256] 2D mesh 254x254, nu 0.001, dt 0.001953125, end 60, 6 cores
+[re1000_n256] done: 30720 steps, solver 365.299s (0.0118912s/step)
+  openfoam re1000_n256: ok
+  fluidlab re1000_n256_cpu: ok (283.566 s)
+  fluidlab re1000_n256_gpu: ok (1077.754 s)
+[re1000_n512] 2D mesh 510x510, nu 0.001, dt 0.0009765625, end 60, 6 cores
+[re1000_n512] done: 61440 steps, solver 3659.879s (0.0595683s/step)
+  openfoam re1000_n512: ok
+  fluidlab re1000_n512_cpu: ok (2025.789 s)
+  fluidlab re1000_n512_gpu: ok (8048.402 s)
+batch finished Sat Sep 26 07:36:20 AM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+rm -f build/.nvidia_gpu_* build/.mode_*
+touch build/.mode_LINUX_gpu1_headless1_debug0
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver2D.cpp -o build/TransportSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver3D.cpp -o build/TransportSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Utils.cpp -o build/Utils.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/VorticityConfinement2D.cpp -o build/VorticityConfinement2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+In file included from src/Methods/ADI/ADI3D.h:5,
+                 from src/Methods/ADI/ADI3D.cpp:1:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/ADI/ADI2D.h:5,
+                 from src/Methods/ADI/ADISettings.h:253,
+                 from src/Methods/ADI/VorticityConfinement2D.cpp:2:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/ADI/ADI2D.h:5,
+                 from src/Methods/ADI/ADI2D.cpp:1:
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/ADI/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/ADI/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/ADI/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/headers/Core/ConfigReader.h:11,
+                 from src/headers/Core/SimulationManager.h:6,
+                 from src/main.cpp:16:
+src/headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/FLIP/DiffusionSolver2D.h:8,
+                 from src/Methods/FLIP/DiffusionSolver2D.cpp:2:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/FLIP/DiffusionSolver3D.h:4,
+                 from src/Methods/FLIP/DiffusionSolver3D.cpp:2:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_X_U_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:47:12: warning: unused variable ‘sig’ [-Wunused-variable]
+   47 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS); //wil be overwriten if diffusion moddeling
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:48:12: warning: unused variable ‘rho’ [-Wunused-variable]
+   48 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_Y_U_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:199:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  199 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:200:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  200 |     double rho = (dt/(4*dh));
+      |            ^~~
+In file included from src/Methods/FLIP/FLIP3D.h:5,
+                 from src/Methods/FLIP/FLIP3D.cpp:1:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_X_V_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:355:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  355 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:356:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  356 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::SolveADI_Y_V_Step_OPENMP(MAC*, MAC*, MAC*, double)’:
+src/Methods/ADI/ADI2D.cpp:503:12: warning: unused variable ‘sig’ [-Wunused-variable]
+  503 |     double sig = (dt/(dh*dh*2)) * (SIMULATION.EPS);
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp:504:12: warning: unused variable ‘rho’ [-Wunused-variable]
+  504 |     double rho = (dt/(4*dh));
+      |            ^~~
+src/Methods/ADI/ADI2D.cpp: In static member function ‘static void ADI2D::InitializeADI2D(MAC*, double, Vec2 (*)(double, double, double), Vec2 (*)(double, double, double), double (*)(double, double, double))’:
+src/Methods/ADI/ADI2D.cpp:647:9: warning: unused variable ‘Nx’ [-Wunused-variable]
+  647 |     int Nx = grid->Nx;
+      |         ^~
+src/Methods/ADI/ADI2D.cpp:648:9: warning: unused variable ‘Ny’ [-Wunused-variable]
+  648 |     int Ny = grid->Ny;
+      |         ^~
+In file included from src/Methods/FLIP/FLIP2D.h:5,
+                 from src/Methods/FLIP/FLIP2D.cpp:1:
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/FLIP/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/FLIP/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/FLIP/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+src/Methods/ADI/ADI3D.cpp: In static member function ‘static void ADI3D::InitializeADI(MAC*, double, Vec3 (*)(double, double, double, double), Vec3 (*)(double, double, double, double), double (*)(double, double, double, double))’:
+src/Methods/ADI/ADI3D.cpp:1212:9: warning: unused variable ‘Nx’ [-Wunused-variable]
+ 1212 |     int Nx = grid->Nx;
+      |         ^~
+src/Methods/ADI/ADI3D.cpp:1213:9: warning: unused variable ‘Ny’ [-Wunused-variable]
+ 1213 |     int Ny = grid->Ny;
+      |         ^~
+src/Methods/ADI/ADI3D.cpp:1214:9: warning: unused variable ‘Nz’ [-Wunused-variable]
+ 1214 |     int Nz = grid->Nz;
+      |         ^~
+src/Methods/FLIP/FLIP2D.cpp: In static member function ‘static void FLIP2D::InitializeFLIP(MAC*, ParticleSet*, double, double)’:
+src/Methods/FLIP/FLIP2D.cpp:60:9: warning: unused variable ‘ambient_height’ [-Wunused-variable]
+   60 |     int ambient_height = (int)(0.0132 / dh);     // 1.32 cm (d)
+      |         ^~~~~~~~~~~~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/DiffusionSolver3D.h:9:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:235:48:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:416:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >; Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver3D.cpp:139:21:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 3>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:416:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >; Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver3D.cpp:139:21:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:107,
+                 from src/Methods/FLIP/DiffusionSolver2D.h:13:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<const Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:235:48:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:96:70:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:416:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >; Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver2D.cpp:150:25:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:162:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+  162 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h: In instantiation of ‘struct Eigen::TensorEvaluator<Eigen::Tensor<double, 2>, Eigen::DefaultDevice>’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h:100:55:   required from ‘struct Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >, Eigen::DefaultDevice>’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:416:14:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >; Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver2D.cpp:150:25:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h:42:66: warning: ignoring attributes on template argument ‘Eigen::PacketType<double, Eigen::DefaultDevice>::type’ {aka ‘__m128d’} [-Wignored-attributes]
+   42 |     PacketAccess = (internal::unpacket_traits<PacketReturnType>::size > 1),
+      |                                                                  ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> >; Scalar_ = double; int NumIndices_ = 2; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 2>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver2D.cpp:150:25:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 2>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 2> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+In file included from Eigen/unsupported/Eigen/CXX11/Tensor:141:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h: In instantiation of ‘static void Eigen::internal::TensorExecutor<Expression, Eigen::DefaultDevice, true>::run(const Expression&, const Eigen::DefaultDevice&) [with Expression = const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >]’:
+Eigen/unsupported/Eigen/CXX11/src/Tensor/Tensor.h:417:65:   required from ‘Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>& Eigen::Tensor<Scalar_, NumIndices_, Options_, IndexType>::operator=(const OtherDerived&) [with OtherDerived = Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> >; Scalar_ = double; int NumIndices_ = 3; int Options_ = 0; IndexType_ = long int]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:847:24:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setConstant(const Scalar&) [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1; Scalar = double]’
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h:843:14:   required from ‘Derived& Eigen::TensorBase<Derived, AccessLevel>::setZero() [with Derived = Eigen::Tensor<double, 3>; int AccessLevel = 1]’
+src/Methods/FLIP/DiffusionSolver3D.cpp:139:21:   required from here
+Eigen/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h:61:118: warning: ignoring attributes on template argument ‘Eigen::TensorEvaluator<const Eigen::TensorAssignOp<Eigen::Tensor<double, 3>, const Eigen::TensorCwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Tensor<double, 3> > >, Eigen::DefaultDevice>::PacketReturnType’ {aka ‘__m128d’} [-Wignored-attributes]
+   61 |       const int PacketSize = unpacket_traits<typename TensorEvaluator<Expression, DefaultDevice>::PacketReturnType>::size;
+      |                                                                                                                      ^~~~
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH3D.cpp -o build/SPH3D.o
+In file included from src/Methods/PPESolver/PressureSolver3D.h:2,
+                 from src/Methods/PPESolver/PressureSolver3D.cpp:1:
+src/Methods/PPESolver/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/PPESolver/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/PPESolver/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/PPESolver/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/PPESolver/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+In file included from src/Methods/PPESolver/PressureSolver2D.h:2,
+                 from src/Methods/PPESolver/PressureSolver2D.cpp:1:
+src/Methods/PPESolver/../../headers/Core/Functions.h: In function ‘int OBSTACLE_SOLID_MASK(int, int, int)’:
+src/Methods/PPESolver/../../headers/Core/Functions.h:124:12: warning: unused variable ‘x’ [-Wunused-variable]
+  124 |     double x = j * dh;
+      |            ^
+src/Methods/PPESolver/../../headers/Core/Functions.h:125:12: warning: unused variable ‘y’ [-Wunused-variable]
+  125 |     double y = i * dh;
+      |            ^
+src/Methods/PPESolver/../../headers/Core/Functions.h:142:12: warning: unused variable ‘cx’ [-Wunused-variable]
+  142 |     double cx= 0.15;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h:143:12: warning: unused variable ‘cl’ [-Wunused-variable]
+  143 |     double cl = 0.1;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h: In function ‘int DAMBREAK_SOLID_MASK_2D(int, int)’:
+src/Methods/PPESolver/../../headers/Core/Functions.h:232:12: warning: unused variable ‘dh’ [-Wunused-variable]
+  232 |     double dh = SIMULATION.dh;
+      |            ^~
+src/Methods/PPESolver/../../headers/Core/Functions.h:233:12: warning: unused variable ‘radius’ [-Wunused-variable]
+  233 |     double radius = 0.05;
+      |            ^~~~~~
+g++ build/MAC.o build/main.o build/TransportSolver2D.o build/TransportSolver3D.o build/Utils.o build/ADI2D.o build/ADI3D.o build/VorticityConfinement2D.o build/DiffusionSolver2D.o build/DiffusionSolver3D.o build/FLIP2D.o build/FLIP3D.o build/PressureSolver2D.o build/PressureSolver3D.o build/SPH2D.o build/SPH3D.o     build/tinyexpr/tinyexpr.o -o bin/program_headless -L/usr/local/cuda/lib64 -L/home/raphael/SDK/AMGX/build -lamgx -lamgxsh -lmpi -lcudart -lcublas -lcusparse -lcusolver -lcudadevrt -lcudart_static -fopenmp -lrt -lpthread -ldl
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Mon Sep 28 09:28:23 AM -03 2026
+[re100_n64] 2D mesh 62x62, nu 0.01, dt 0.0078125, end 30, 6 cores
+[re100_n64] done: 3840 steps, solver 7.055s (0.00183724s/step)
+  openfoam re100_n64: ok
+  fluidlab re100_n64_cpu: ok (4.447 s)
+  fluidlab re100_n64_gpu: ok (5.366 s)
+[re100_n128] 2D mesh 126x126, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128] done: 7680 steps, solver 26.746s (0.00348255s/step)
+  openfoam re100_n128: ok
+  fluidlab re100_n128_cpu: ok (13.716 s)
+  fluidlab re100_n128_gpu: ok (19.105 s)
+[re100_n256] 2D mesh 254x254, nu 0.01, dt 0.001953125, end 30, 6 cores
+[re100_n256] done: 15360 steps, solver 242.738s (0.0158033s/step)
+  openfoam re100_n256: ok
+  fluidlab re100_n256_cpu: ok (81.082 s)
+  fluidlab re100_n256_gpu: ok (102.470 s)
+[re100_n512] 2D mesh 510x510, nu 0.01, dt 0.0009765625, end 30, 6 cores
+[re100_n512] done: 30720 steps, solver 3521.751s (0.11464s/step)
+  openfoam re100_n512: ok
+  fluidlab re100_n512_cpu: ok (687.567 s)
+  fluidlab re100_n512_gpu: ok (825.088 s)
+[re1000_n64] 2D mesh 62x62, nu 0.001, dt 0.0078125, end 60, 6 cores
+[re1000_n64] done: 7680 steps, solver 13.476s (0.00175469s/step)
+  openfoam re1000_n64: ok
+  fluidlab re1000_n64_cpu: ok (6.021 s)
+  fluidlab re1000_n64_gpu: ok (18.206 s)
+[re1000_n128] 2D mesh 126x126, nu 0.001, dt 0.00390625, end 60, 6 cores
+[re1000_n128] done: 15360 steps, solver 60.262s (0.00392331s/step)
+  openfoam re1000_n128: ok
+  fluidlab re1000_n128_cpu: ok (43.993 s)
+  fluidlab re1000_n128_gpu: ok (55.683 s)
+[re1000_n256] 2D mesh 254x254, nu 0.001, dt 0.001953125, end 60, 6 cores
+[re1000_n256] done: 30720 steps, solver 348.710s (0.0113512s/step)
+  openfoam re1000_n256: ok
+  fluidlab re1000_n256_cpu: ok (235.715 s)
+  fluidlab re1000_n256_gpu: ok (265.043 s)
+[re1000_n512] 2D mesh 510x510, nu 0.001, dt 0.0009765625, end 60, 6 cores
+[re1000_n512] done: 61440 steps, solver 3184.333s (0.0518283s/step)
+  openfoam re1000_n512: ok
+  fluidlab re1000_n512_cpu: ok (1630.610 s)
+  fluidlab re1000_n512_gpu: ok (1770.472 s)
+batch finished Mon Sep 28 01:08:26 PM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+rm -f build/.nvidia_gpu_* build/.mode_*
+touch build/.mode_LINUX_g++_gpu1_headless1_debug0_omp1_glfwsystem
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/SetupScreen.cpp -o build/SetupScreen.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver2D.cpp -o build/TransportSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver3D.cpp -o build/TransportSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Utils.cpp -o build/Utils.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/VorticityConfinement2D.cpp -o build/VorticityConfinement2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/Explicit/Explicit2D.cpp -o build/Explicit2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -Iinclude/amgcl -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH3D.cpp -o build/SPH3D.o
+gcc -O3 -DNDEBUG -Wall -MMD -MP -c include/tinyexpr/tinyexpr.c -o build/tinyexpr/tinyexpr.o
+g++ build/MAC.o build/main.o build/SetupScreen.o build/TransportSolver2D.o build/TransportSolver3D.o build/Utils.o build/ADI2D.o build/ADI3D.o build/VorticityConfinement2D.o build/Explicit2D.o build/DiffusionSolver2D.o build/DiffusionSolver3D.o build/FLIP2D.o build/FLIP3D.o build/PressureSolver2D.o build/PressureSolver3D.o build/SPH2D.o build/SPH3D.o     build/tinyexpr/tinyexpr.o   -o bin/program_headless -L/usr/local/cuda/lib64 -L/home/raphael/SDK/AMGX/build -lamgx -lamgxsh -lmpi -lcudart -lcublas -lcusparse -lcusolver -lcudadevrt -lcudart_static -fopenmp -lrt -lpthread -ldl
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Wed Oct  7 09:30:16 AM -03 2026
+[re100_n64] 2D mesh 64x64, nu 0.01, dt 0.0078125, end 30, 6 cores
+[re100_n64] done: 3840 steps, solver 5.487s (0.00142891s/step)
+  openfoam re100_n64: ok
+  fluidlab re100_n64_cpu: ok (1.996 s)
+  fluidlab re100_n64_gpu: ok (3.840 s)
+[re100_n128] 2D mesh 128x128, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128] done: 7680 steps, solver 24.437s (0.0031819s/step)
+  openfoam re100_n128: ok
+  fluidlab re100_n128_cpu: ok (12.216 s)
+  fluidlab re100_n128_gpu: ok (99.735 s)
+[re100_n256] 2D mesh 256x256, nu 0.01, dt 0.001953125, end 30, 6 cores
+[re100_n256] done: 15360 steps, solver 231.952s (0.015101s/step)
+  openfoam re100_n256: ok
+  fluidlab re100_n256_cpu: ok (74.803 s)
+  fluidlab re100_n256_gpu: ok (75.674 s)
+[re100_n512] 2D mesh 512x512, nu 0.01, dt 0.0009765625, end 30, 6 cores
+[re100_n512] done: 30720 steps, solver 3012.390s (0.0980596s/step)
+  openfoam re100_n512: ok
+  fluidlab re100_n512_cpu: ok (607.712 s)
+  fluidlab re100_n512_gpu: ok (609.232 s)
+[re1000_n64] 2D mesh 64x64, nu 0.001, dt 0.0078125, end 60, 6 cores
+[re1000_n64] done: 7680 steps, solver 10.820s (0.00140885s/step)
+  openfoam re1000_n64: ok
+  fluidlab re1000_n64_cpu: ok (5.963 s)
+  fluidlab re1000_n64_gpu: ok (12.567 s)
+[re1000_n128] 2D mesh 128x128, nu 0.001, dt 0.00390625, end 60, 6 cores
+[re1000_n128] done: 15360 steps, solver 48.325s (0.00314616s/step)
+  openfoam re1000_n128: ok
+  fluidlab re1000_n128_cpu: ok (40.569 s)
+  fluidlab re1000_n128_gpu: ok (441.808 s)
+[re1000_n256] 2D mesh 256x256, nu 0.001, dt 0.001953125, end 60, 6 cores
+[re1000_n256] done: 30720 steps, solver 267.001s (0.00869144s/step)
+  openfoam re1000_n256: ok
+  fluidlab re1000_n256_cpu: ok (210.796 s)
+  fluidlab re1000_n256_gpu: ok (230.958 s)
+[re1000_n512] 2D mesh 512x512, nu 0.001, dt 0.0009765625, end 60, 6 cores
+[re1000_n512] done: 61440 steps, solver 3903.051s (0.0635262s/step)
+  openfoam re1000_n512: ok
+  fluidlab re1000_n512_cpu: ok (1426.424 s)
+  fluidlab re1000_n512_gpu: ok (1518.341 s)
+batch finished Wed Oct  7 01:05:25 PM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Wed Oct  7 04:59:21 PM -03 2026
+  fluidlab re100_n64_gpu: ok (5.428 s)
+  fluidlab re100_n128_gpu: ok (17.427 s)
+  fluidlab re100_n256_gpu: ok (86.783 s)
+  fluidlab re100_n512_gpu: ok (613.191 s)
+  fluidlab re1000_n64_gpu: ok (19.973 s)
+  fluidlab re1000_n128_gpu: ok (61.026 s)
+  fluidlab re1000_n256_gpu: ok (260.287 s)
+  fluidlab re1000_n512_gpu: ok (1594.590 s)
+batch finished Wed Oct  7 05:43:40 PM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+rm -f build/.nvidia_gpu_* build/.mode_*
+touch build/.mode_LINUX_g++_gpu1_headless1_debug0_omp1_glfwsystem
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/SetupScreen.cpp -o build/SetupScreen.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver2D.cpp -o build/TransportSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver3D.cpp -o build/TransportSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Utils.cpp -o build/Utils.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/VorticityConfinement2D.cpp -o build/VorticityConfinement2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/Explicit/Explicit2D.cpp -o build/Explicit2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+make: *** [Makefile:352: build/PressureSolver3D.o] Interrupt
+make: *** [Makefile:352: build/PressureSolver2D.o] Interrupt
+make: *** [Makefile:352: build/SPH2D.o] Interrupt
+make: *** [Makefile:352: build/FLIP2D.o] Interrupt
+make: *** [Makefile:352: build/FLIP3D.o] Interrupt
+make: *** [Makefile:352: build/DiffusionSolver2D.o] Interrupt
+make: *** [Makefile:352: build/SetupScreen.o] Interrupt
+make: *** [Makefile:352: build/DiffusionSolver3D.o] Interrupt
+make: *** [Makefile:352: build/ADI3D.o] Interrupt
+make: *** [Makefile:352: build/MAC.o] Interrupt
+make: *** [Makefile:352: build/main.o] Interrupt
+make: *** [Makefile:352: build/ADI2D.o] Interrupt
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/SetupScreen.cpp -o build/SetupScreen.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH3D.cpp -o build/SPH3D.o
+gcc -O3 -DNDEBUG -Wall -MMD -MP -c include/tinyexpr/tinyexpr.c -o build/tinyexpr/tinyexpr.o
+g++ build/MAC.o build/main.o build/SetupScreen.o build/TransportSolver2D.o build/TransportSolver3D.o build/Utils.o build/ADI2D.o build/ADI3D.o build/VorticityConfinement2D.o build/Explicit2D.o build/DiffusionSolver2D.o build/DiffusionSolver3D.o build/FLIP2D.o build/FLIP3D.o build/PressureSolver2D.o build/PressureSolver3D.o build/SPH2D.o build/SPH3D.o     build/tinyexpr/tinyexpr.o   -o bin/program_headless -L/usr/local/cuda/lib64 -L/home/raphael/SDK/AMGX/build -lamgx -lamgxsh -lmpi -lcudart -lcublas -lcusparse -lcusolver -lcudadevrt -lcudart_static -fopenmp -lrt -lpthread -ldl
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Thu Oct  8 11:04:40 PM -03 2026
+[re100_n64] 2D mesh 64x64, nu 0.01, dt 0.0078125, end 30, 6 cores
+[re100_n64] done: 3840 steps, solver 5.760s (0.0015s/step)
+  openfoam re100_n64: ok
+  fluidlab re100_n64_cpu: ok (4.321 s)
+  fluidlab re100_n64_gpu: ok (5.446 s)
+[re100_n128] 2D mesh 128x128, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128] done: 7680 steps, solver 27.090s (0.00352734s/step)
+  openfoam re100_n128: ok
+  fluidlab re100_n128_cpu: ok (12.373 s)
+  fluidlab re100_n128_gpu: ok (17.001 s)
+[re100_n256] 2D mesh 256x256, nu 0.01, dt 0.001953125, end 30, 6 cores
+[re100_n256] done: 15360 steps, solver 220.461s (0.0143529s/step)
+  openfoam re100_n256: ok
+  fluidlab re100_n256_cpu: ok (75.497 s)
+  fluidlab re100_n256_gpu: ok (80.367 s)
+[re100_n512] 2D mesh 512x512, nu 0.01, dt 0.0009765625, end 30, 6 cores
+[re100_n512] done: 30720 steps, solver 3091.362s (0.10063s/step)
+  openfoam re100_n512: ok
+  fluidlab re100_n512_cpu: ok (628.182 s)
+  fluidlab re100_n512_gpu: ok (554.586 s)
+[re100_n1024] 2D mesh 1024x1024, nu 0.01, dt 0.00048828125, end 30, 6 cores
+  openfoam re100_n1024: FAILED (see results/re100_n1024/log.*)
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+rm -f build/.nvidia_gpu_* build/.mode_*
+touch build/.mode_LINUX_g++_gpu1_headless1_debug0_omp1_glfwsystem
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/MAC.cpp -o build/MAC.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/main.cpp -o build/main.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/SetupScreen.cpp -o build/SetupScreen.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver2D.cpp -o build/TransportSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/TransportSolver3D.cpp -o build/TransportSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Utils.cpp -o build/Utils.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI2D.cpp -o build/ADI2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/ADI3D.cpp -o build/ADI3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/ADI/VorticityConfinement2D.cpp -o build/VorticityConfinement2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/Explicit/Explicit2D.cpp -o build/Explicit2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver2D.cpp -o build/DiffusionSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/DiffusionSolver3D.cpp -o build/DiffusionSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP2D.cpp -o build/FLIP2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/FLIP/FLIP3D.cpp -o build/FLIP3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver2D.cpp -o build/PressureSolver2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/PPESolver/PressureSolver3D.cpp -o build/PressureSolver3D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH2D.cpp -o build/SPH2D.o
+g++ -std=c++17 -Wall -Wextra -Wno-unused-parameter -Wno-deprecated-copy -O3 -DNDEBUG -MMD -MP -Isrc/headers -Isrc/headers/Solvers -IEigen -Iinclude/imgui-1.92.4 -Iinclude/imgui-1.92.4/backends -Iinclude/implot-0.17 -Iinclude/implot3d-0.3 -Iinclude/tinyexpr -idirafter include/amgcl    -fopenmp -DNVIDIA_GPU -I/usr/local/cuda/include -I/home/raphael/SDK/AMGX/include -I/home/raphael/SDK/AMGX/build -DHEADLESS -c src/Methods/SPH/SPH3D.cpp -o build/SPH3D.o
+gcc -O3 -DNDEBUG -Wall -MMD -MP -c include/tinyexpr/tinyexpr.c -o build/tinyexpr/tinyexpr.o
+g++ build/MAC.o build/main.o build/SetupScreen.o build/TransportSolver2D.o build/TransportSolver3D.o build/Utils.o build/ADI2D.o build/ADI3D.o build/VorticityConfinement2D.o build/Explicit2D.o build/DiffusionSolver2D.o build/DiffusionSolver3D.o build/FLIP2D.o build/FLIP3D.o build/PressureSolver2D.o build/PressureSolver3D.o build/SPH2D.o build/SPH3D.o     build/tinyexpr/tinyexpr.o   -o bin/program_headless -L/usr/local/cuda/lib64 -L/home/raphael/SDK/AMGX/build -lamgx -lamgxsh -lmpi -lcudart -lcublas -lcusparse -lcusolver -lcudadevrt -lcudart_static -fopenmp -lrt -lpthread -ldl
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Wed Oct 14 11:34:28 PM -03 2026
+  nereus re100_n64_cpu: ok (1.441 s)
+  nereus re100_n64_gpu: ok (5.215 s)
+  nereus re100_n128_cpu: ok (9.374 s)
+  nereus re100_n128_gpu: ok (16.698 s)
+  nereus re100_n256_cpu: ok (65.762 s)
+  nereus re100_n256_gpu: ok (82.126 s)
+  nereus re100_n512_cpu: ok (581.632 s)
+  nereus re100_n512_gpu: ok (566.768 s)
+batch finished Wed Oct 14 11:56:37 PM -03 2026
+building /home/raphael/Projects/3DADI/bin/program_headless
+make: Entering directory '/home/raphael/Projects/3DADI'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/raphael/Projects/3DADI'
+batch started Wed Oct 14 11:56:38 PM -03 2026
+[re1000_n64] 2D mesh 64x64, nu 0.001, dt 0.0078125, end 60, 6 cores
+[re1000_n64] done: 7680 steps, solver 11.262s (0.00146641s/step)
+  openfoam re1000_n64: ok
+  nereus re1000_n64_cpu: ok (3.248 s)
+  nereus re1000_n64_gpu: ok (18.688 s)
+[re1000_n128] 2D mesh 128x128, nu 0.001, dt 0.00390625, end 60, 6 cores
+[re1000_n128] done: 15360 steps, solver 67.970s (0.00442513s/step)
+  openfoam re1000_n128: ok
+  nereus re1000_n128_cpu: ok (21.737 s)
+  nereus re1000_n128_gpu: ok (61.205 s)
+[re1000_n256] 2D mesh 256x256, nu 0.001, dt 0.001953125, end 60, 6 cores
+[re1000_n256] done: 30720 steps, solver 425.751s (0.0138591s/step)
+  openfoam re1000_n256: ok
+  nereus re1000_n256_cpu: ok (135.803 s)
+  nereus re1000_n256_gpu: ok (264.724 s)
+[re1000_n512] 2D mesh 512x512, nu 0.001, dt 0.0009765625, end 60, 6 cores
+[re1000_n512] done: 61440 steps, solver 3321.128s (0.0540548s/step)
+  openfoam re1000_n512: ok
+  nereus re1000_n512_cpu: ok (1278.941 s)
+  nereus re1000_n512_gpu: ok (1476.653 s)
+[re100_n128_3d] 3D mesh 128x128x128, nu 0.01, dt 0.00390625, end 30, 6 cores
+[re100_n128_3d] done: 7680 steps, solver 12381.650s (1.61219s/step)
+  openfoam re100_n128_3d: ok
+  nereus re100_n128_3d_cpu: ok (6014.531 s)
+  nereus re100_n128_3d_gpu: ok (5330.783 s)
+batch finished Thu Oct 15 08:31:30 AM -03 2026

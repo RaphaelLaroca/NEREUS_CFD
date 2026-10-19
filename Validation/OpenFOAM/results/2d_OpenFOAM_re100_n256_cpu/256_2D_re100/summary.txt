@@ -1,0 +1,13 @@
+code                 NEREUS ADI (incremental, central flux form), headless
+dimension            2
+device               cpu
+grid_size            256
+reynolds_nominal     100
+dt                   0.001953125
+end_time             30
+steps                15360
+threads              6
+pressure             AMGCL CG + smoothed aggregation, relative 1e-6
+exit_code            0
+total_wall_s         65.762
+total_wall_per_step_s 0.00428138

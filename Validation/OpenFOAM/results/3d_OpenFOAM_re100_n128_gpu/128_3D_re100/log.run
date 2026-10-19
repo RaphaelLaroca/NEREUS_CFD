@@ -1,0 +1,38 @@
+scene '/home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/3d_OpenFOAM_re100_n128_gpu.cfg': xmin=noslip xmax=noslip ymin=noslip ymax=moving zmin=noslip zmax=noslip | 0 region(s) | sampling=center
+Simulation config finished!
+MAC Grid initialized - Parameters
+-dt = 0.003906
+-dh = 0.007812
+-Nx = 130
+-Ny = 130
+-Nz = 130
+Total node count: 6744273 - Re = 100 - Grid size: 128
+AMGX version 2.5.0
+Built on Apr 13 2025, 21:21:54
+Compiled with CUDA Runtime 12.8, using CUDA driver 13.2
+Simulation steps:  0 momentum  4 pressure  6 projection
+
+--- NEREUS 1.0, headless run ---
+config   /home/raphael/Projects/3DADI/Validation/OpenFOAM/OpenFOAM_Presets/3d_OpenFOAM_re100_n128_gpu.cfg
+solver   ADI, 3D, GPU (AMGX), 6 threads
+grid     130 x 130 x 130
+stop     TIME at t = 30
+export   Validation/OpenFOAM/results/3d_OpenFOAM_re100_n128_gpu/128_3D_re100/
+
+step     1000   t 3.90625   dt 3.906e-03   res 5.675e-05   704.18 ms/step   13.0%   eta 5355 s
+step     2000   t 7.81250   dt 3.906e-03   res 3.456e-06   667.55 ms/step   26.0%   eta 4252 s
+step     3000   t 11.71875   dt 3.906e-03   res 7.621e-07   669.09 ms/step   39.1%   eta 3389 s
+step     4000   t 15.62500   dt 3.906e-03   res 7.513e-07   676.25 ms/step   52.1%   eta 2617 s
+step     5000   t 19.53125   dt 3.906e-03   res 1.719e-07   661.18 ms/step   65.1%   eta 1886 s
+step     6000   t 23.43750   dt 3.906e-03   res 1.538e-07   675.92 ms/step   78.1%   eta 1174 s
+step     7000   t 27.34375   dt 3.906e-03   res 2.599e-07   674.95 ms/step   91.1%   eta 473 s
+Simulation stopped: reached t = 30.000000 (target 30.000000)
+  final field and telemetry exported.
+step     7680   t 30.00000   dt 3.906e-03   res 7.447e-07   3415.51 ms/step
+
+--- done: the stopping rule fired ---
+rule     reached t = 30.000000 (target 30.000000)
+steps    7680
+time     30.000000 s simulated
+wall     5328.96 s, 693.88 ms/step, 1.4 steps/s
+exports  Validation/OpenFOAM/results/3d_OpenFOAM_re100_n128_gpu/128_3D_re100/

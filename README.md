@@ -168,6 +168,22 @@ the project root, for example from `bin/` or by double-clicking it, the program 
 above the executable and works from there. A run given a config path stays where it was started, so its results land
 beside that case.
 
+### Test run
+
+The lid-driven cavity at Re 100 on a 64 x 64 grid runs in about ten seconds on one thread, and its expected
+output ships with the repository. The run writes into the same folder, so set the expected file aside first:
+
+```bash
+cp Validation/FVM_ADI/results/ldc_2d_re100_n64_adi/64_2D_re100/telemetry.csv expected_telemetry.csv
+bin/nereus_headless configs/Explicit/ldc_2d_re100_n64_adi.cfg
+tail -n 1 Validation/FVM_ADI/results/ldc_2d_re100_n64_adi/64_2D_re100/telemetry.csv
+tail -n 1 expected_telemetry.csv
+```
+
+Both last rows should read iteration 7680 at t = 60 with a residual near 3e-12 and a divergence sum near
+1.8e-6; the timing columns depend on the machine. The run also writes the final field as a `.vtr` file for
+ParaView. The same case under the EXPLICIT method is `configs/Explicit/ldc_2d_re100_n64_explicit.cfg`.
+
 ## Describing a case
 
 A case is one configuration file: the settings as `KEY = value` lines, and the geometry and boundary
@@ -247,9 +263,8 @@ The lid-driven cavity is also compared with OpenFOAM (icoFoam) for accuracy and 
 
 ## Documentation
 
-- **API reference**: [online documentation](https://example.github.io/nereus) *(placeholder, to be published on
-  GitHub Pages)*; the same document as a PDF is in [`docs/api/nereus_api.pdf`](docs/api/nereus_api.pdf).
-  It covers building and running, the case file, the simulation manager, the MAC grid and its boundary
+- **API reference**: [`docs/api/nereus_api.pdf`](docs/api/nereus_api.pdf), built from
+  [`docs/api/nereus_api.tex`](docs/api/nereus_api.tex). It covers building and running, the case file, the simulation manager, the MAC grid and its boundary
   conditions, the method registry, the pressure solver, transport, particles, probes and telemetry, with the
   explicit method as a worked example.
 

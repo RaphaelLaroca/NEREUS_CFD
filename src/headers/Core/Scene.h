@@ -661,7 +661,7 @@ public:
             }
         }
 
-        // The outer ring is one cell thick, exactly as every mask in Functions.h builds it.
+        // The outer ring is one cell thick.
         bool on[FACE_COUNT];
         FacesAtCell(i, j, k, on);
         const int win = WinningFace(on);
@@ -1543,11 +1543,11 @@ private:
 
 } // namespace SceneDesc
 
-// The one scene the run uses. Empty unless a SCENE_FILE was given.
+// The one scene the run uses: the config's scene block, or an empty scene (a closed box) without one.
 inline SceneDesc::Scene SCENE;
 
-// The generic triple. These have exactly the signatures Functions.h uses, so ConfigReader
-// wires them into SIMULATION like any hardcoded case and no solver notices the difference.
+// The generic triple, with the signatures of SIMULATION's boundary and mask functions, so ConfigReader
+// wires them in and no solver notices the difference.
 
 inline int SCENE_SOLID_MASK(int i, int j, int k) { return SCENE.CellTypeAt(i, j, k); }
 inline int SCENE_SOLID_MASK_2D(int i, int j) { return SCENE.CellTypeAt(i, j, 0); }

@@ -25,7 +25,7 @@
 #include "Methods/Explicit/ExplicitSettings.h"
 
 #ifndef HEADLESS
-// The UI: InitializeUI, UpdateUI and DisposeUI. Everything ImGui/GLFW stays behind these three.
+// The UI: InitializeUI, UpdateUI, RestartUI and DisposeUI. Everything ImGui/GLFW stays behind these four.
 #include "headers/Core/SimulationManagerUI.h"
 #endif
 

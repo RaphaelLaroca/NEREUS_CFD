@@ -363,7 +363,7 @@ void SPH3D::AdvanceSPH(MAC* gridAnt, MAC* gridSol, ParticleSet* particles, doubl
     const int cap = 64;
 
     // Phase timing. The whole outer step is measured, every substep summed, so the four parts add
-    // up to lastSPHTotalTime.
+    // up to SPH_TIMINGS.totalTime.
     const double tStepStart = GetWallTime();
     double tNb = 0.0, tDen = 0.0, tFor = 0.0, tInt = 0.0, a;
 

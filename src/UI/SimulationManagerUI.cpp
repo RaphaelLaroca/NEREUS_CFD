@@ -3,7 +3,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 // The window, the setup screen's drawing and the viewer: everything ImGui/ImPlot/GLFW. Compiled into the GUI
-// program only; a program reaches it through the three calls in headers/Core/SimulationManagerUI.h.
+// program only; a program reaches it through the four calls in headers/Core/SimulationManagerUI.h.
 
 #include "../headers/Core/SetupScreen.h"
 #include "../headers/Core/SimulationManagerUI.h"

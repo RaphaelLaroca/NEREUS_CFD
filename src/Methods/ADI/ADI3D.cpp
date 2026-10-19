@@ -1282,8 +1282,6 @@ void ADI3D::SolveADIStep(MAC* gridAnt,MAC* gridSol,ParticleSet *particles, doubl
 
             SolveADI_Z_W_Step_OPENMP(&Y_STEP_SOL,&Z_STEP_SOL,gridAnt,time);
 
-    // dont know if i need this!
-
     gridSol->CopyFlowFields(Z_STEP_SOL);   // as ADI2D: the sweep grids carry no scalars
     // The body force goes in AFTER the sweeps and BEFORE the pressure solve, so the projection
     // removes the part of it that is not divergence free.

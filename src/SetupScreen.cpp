@@ -159,8 +159,7 @@ bool SimulationSetupUI::SavePreset(const std::string &name, std::string &err)
     std::error_code ec;
     // The preset's own folder (a name may carry one, "Ghia/..."); fine if it already exists.
     std::filesystem::create_directories(std::filesystem::path(PresetPath(name, ".cfg")).parent_path(), ec);
-    // Validate only -- the scene goes INTO the .cfg, so a preset no longer depends on a
-    // scenes/*.scene that another preset may be sharing.
+    // Validate only: the scene goes into the .cfg itself.
     if (!ApplyScene()) { err = "scene: " + sceneStatus; return false; }
     if (!WriteFiles(err, PresetPath(name, ".cfg")))
         return false;

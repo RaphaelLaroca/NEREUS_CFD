@@ -171,8 +171,8 @@ inline bool SameTransport(const ScalarTransport &a, const ScalarTransport &b)
 
 
 
-// ----- the scene block inside simulation_config.txt ----- A scene can live in its own file, but it shouldnt, this is a fallback
-// (SCENE_FILE) or be embedded in the config between these two markers.
+// ----- the scene block inside a config ----- The scene is embedded between these two markers.
+// A separate file (SCENE_FILE) is still read, as a fallback for the test fixtures.
 inline const char *SCENE_BLOCK_BEGIN = "SCENE_BEGIN";
 inline const char *SCENE_BLOCK_END   = "SCENE_END";
 //same thing here, old fallback

@@ -281,6 +281,7 @@ configs/                   case files, one folder per validation case
 docs/                      API reference and assets
 include/                   bundled third-party libraries
 tests/                     development test suites (tests/run_all.sh; see tests/README.md)
+Validation/                validation runs: reference data, run scripts, and the telemetry of every paper run
 run_all_validation.sh      runs every validation case headless
 ```
 

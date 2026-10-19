@@ -1,0 +1,14 @@
+# Written by the NEREUS setup screen.
+#
+# Boundary and region lines are applied in order and the LAST match wins, which
+# is what resolves the corners. Put a moving lid last to have it beat the side
+# walls; put no-slip walls last to have them beat an inlet.
+
+sampling center
+
+boundary xmin inflow u="1.5 - (1.5/(0.205*0.205))*(y-0.205)^2" v="0" clamp_negative=1 p="0"
+boundary xmax pressure_outlet
+boundary ymin noslip
+boundary ymax noslip
+
+region solid cylinder axis=z center=(0.2,0.2,0.2) radius=0.05

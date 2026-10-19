@@ -1,0 +1,17 @@
+# Flow past a cylinder, 3D.  Schaefer et al. (1996), benchmark 3D-2.
+#
+# The inlet profile is the benchmark's product of two parabolas across the square section:
+#   U(y,z) = 16 * Umax * y*z*(0.41-y)*(0.41-z) / 0.41^4,  Umax = 0.45 m/s.
+# The cylinder spans the full width, so it is an infinite cylinder about z capped by the
+# spanwise walls.
+
+sampling corner
+
+boundary xmin inflow  u="16*0.45*y*z*(0.41-y)*(0.41-z)/(0.41^4)"  clamp_negative=1
+boundary xmax pressure_outlet
+boundary ymin noslip
+boundary ymax noslip
+boundary zmin noslip
+boundary zmax noslip
+
+region solid cylinder axis=z center=(0.2,0.2) radius=0.05

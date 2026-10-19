@@ -1,0 +1,17 @@
+# SPH dam break. Mueller, Charypar & Gross (2003).
+#
+# SPH is meshless, so the boundary lines here only set the domain walls the particles are
+# reflected off -- there is no border ring of cells and no pressure boundary condition.
+# `region fluid` is what the solver seeds particles from, on a lattice of the configured
+# spacing, and `region solid` is collided with ANALYTICALLY: the cylinder is a cylinder,
+# not a staircase, because there is no mask to voxelise it onto.
+
+sampling center
+
+boundary xmin noslip
+boundary xmax noslip
+boundary ymin noslip
+boundary ymax noslip
+
+region fluid box min=(0.0,0.0,-1) max=(0.4,0.6,1)
+region solid cylinder axis=z center=(0.7,0.15) radius=0.08

@@ -1,0 +1,14 @@
+# Written by the NEREUS setup screen.
+#
+# Boundary and region lines are applied in order and the LAST match wins, which
+# is what resolves the corners. Put a moving lid last to have it beat the side
+# walls; put no-slip walls last to have them beat an inlet.
+
+sampling corner
+
+boundary xmin noslip
+boundary xmax noslip
+boundary ymin noslip
+boundary ymax noslip
+
+region fluid box min=(0,0,0) max=(0.28,0.11,1)

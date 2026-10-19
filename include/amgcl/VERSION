@@ -1,0 +1,1 @@
+amgcl  https://github.com/ddemidov/amgcl  commit d34933b02c37ff26b79b4558e31f968a829c4bb0  MIT  (headers only: the amgcl/ directory; built with AMGCL_NO_BOOST)

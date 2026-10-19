@@ -1,0 +1,12 @@
+# Written by the NEREUS setup screen.
+#
+# Boundary and region lines are applied in order and the LAST match wins, which
+# is what resolves the corners. Put a moving lid last to have it beat the side
+# walls; put no-slip walls last to have them beat an inlet.
+
+sampling center
+
+boundary xmin inflow u="-cos(x)*sin(y)*exp(-0.02*t)" v="sin(x)*cos(y)*exp(-0.02*t)" p="-0.25*(cos(2*x)+cos(2*y))*exp(-0.04*t)"
+boundary xmax inflow u="-cos(x)*sin(y)*exp(-0.02*t)" v="sin(x)*cos(y)*exp(-0.02*t)" p="-0.25*(cos(2*x)+cos(2*y))*exp(-0.04*t)"
+boundary ymin inflow u="-cos(x)*sin(y)*exp(-0.02*t)" v="sin(x)*cos(y)*exp(-0.02*t)" p="-0.25*(cos(2*x)+cos(2*y))*exp(-0.04*t)"
+boundary ymax inflow u="-cos(x)*sin(y)*exp(-0.02*t)" v="sin(x)*cos(y)*exp(-0.02*t)" p="-0.25*(cos(2*x)+cos(2*y))*exp(-0.04*t)"
